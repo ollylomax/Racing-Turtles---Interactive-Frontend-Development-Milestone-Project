@@ -9,6 +9,12 @@ header {
 
 /* ------------------------------------------------Headings */
 
+.turtle-logo {
+    width: 100px;
+    height: 100px;
+    margin-top: 30px;
+}
+
 .main-heading {
     margin-top: 15px;
     font-family: 'Odibee Sans', cursive;
@@ -32,6 +38,7 @@ header {
 
 .game-container {
     margin-top: 30px;
+    margin-bottom: 30px;
     max-width: 800px;
 }
 
@@ -50,6 +57,10 @@ header {
 .start-position img {
     width: 50px;
     height: 50px;
+}
+
+.race-track {
+    border: 2px solid black;
 }
 
 /* ------------------------------------------------Results */

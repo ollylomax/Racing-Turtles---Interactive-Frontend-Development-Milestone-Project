@@ -178,7 +178,97 @@ document.getElementById("next-race-button").addEventListener("click", function (
     for (let i = 0; i < startPos.length; i++) {
         startPos[i].insertAdjacentHTML('beforeend', `<img src="${turtleArray[i]}">`);
     }
-    
+
     document.getElementById("start-race-button").style.display = '';
     document.getElementById("next-race-button").style.display = 'none';
+
+
+
+
+
+
+
+
+
+    // Define empty array for possible odds
+let oddsArr = [];
+
+// Loop until 4 sets of odds objects are pushed into the empty array
+do {
+    let upperRandom = Math.floor((Math.random() * 20) + 1);
+    let lowerRandom = Math.floor((Math.random() * 3) + 1);
+    // Conditional argument to omit two even numbers or two 3's
+    if (upperRandom % 2 == 0 && lowerRandom % 2 == 0 || upperRandom == 3 && lowerRandom == 3) {
+        let upperRandom = Math.floor((Math.random() * 20) + 1);
+        let lowerRandom = Math.floor((Math.random() * 3) + 1);
+    } else {
+        // Push the odds to empty array
+        oddsArr.push({
+            upper: upperRandom,
+            lower: lowerRandom,
+        });
+    }
+}
+while (oddsArr.length < 4);
+
+// Function to update odds in turtle object from the odds array above
+function updateOddsAgainstTurtle() {
+    for (let l in turtles) {
+        turtles[l].odds = oddsArr[l]
+    };
+}
+
+// Function to shuffle an array passed in as an argument
+function shuffleArr(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    };
+};
+
+// Function to set finishing positions based on weighted odds
+function defPositions() {
+    // Call update odds function
+    updateOddsAgainstTurtle()
+    // Define an empty array to insert weighted odds
+    let weightsArr = [];
+
+    // Loop through turtles to declare odds weights
+    for (let i in turtles) {
+        let weights = Math.floor((100 / turtles[i].odds.upper) * turtles[i].odds.lower);
+
+        // Loop to push number of turtle names to weights array based on odds weights
+        let j = 0;
+        while (j < weights) {
+            weightsArr.push(turtles[i].name)
+            j++
+        }
+    }
+
+    // Shuffle the weights array using shuffle array function
+    shuffleArr(weightsArr);
+
+    // Define variable for each turtle final position
+    let finalPositions = 1;
+
+    // Loop throigh all 4 turtles
+    while (finalPositions < 5) {
+
+        // Loop to set final positions of turtles by taking first turtle from weights array
+        for (let i in turtles) {
+            if (weightsArr[0] === turtles[i].name) {
+                // Assign turtle position
+                turtles[i].position = finalPositions;
+                // Filter turtle from the weights array
+                weightsArr = weightsArr.filter(each => each != weightsArr[0])
+                finalPositions++;
+
+            }
+        }
+    }
+}
+defPositions();
+    // Call function to update turtle odds to turtle object
+    updateOddsAgainstTurtle()
+
 });

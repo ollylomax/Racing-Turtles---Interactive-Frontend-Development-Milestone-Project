@@ -106,11 +106,6 @@ function defPositions() {
     }
 }
 defPositions();
-// Append to html
-$(`#lane-1-position-${turtles[0].position}`).append(`<img src="assets/images/turtle-1.png">`);
-$(`#lane-2-position-${turtles[1].position}`).append(`<img src="assets/images/turtle-2.png">`);
-$(`#lane-3-position-${turtles[2].position}`).append(`<img src="assets/images/turtle-3.png">`);
-$(`#lane-4-position-${turtles[3].position}`).append(`<img src="assets/images/turtle-4.png">`);
 
 // Add event listener for page load
 document.addEventListener('DOMContentLoaded', function () {
@@ -141,4 +136,26 @@ document.addEventListener('DOMContentLoaded', function () {
     for (let i = 0; i < loadOdds.length; i++) {
         loadOdds[i].append(turtles[i].odds.upper + '/' + turtles[i].odds.lower);
     }
+});
+
+// Add event listener for click start button
+document.getElementById("start-race-button").addEventListener("click", function () {
+
+    // Empty start positions
+    $('#start-position-1').empty();
+    $('#start-position-2').empty();
+    $('#start-position-3').empty();
+    $('#start-position-4').empty();
+
+    // Append turtle positions to html
+    $(`#lane-1-position-${turtles[0].position}`).append(`<img src="assets/images/turtle-1.png">`);
+    $(`#lane-2-position-${turtles[1].position}`).append(`<img src="assets/images/turtle-2.png">`);
+    $(`#lane-3-position-${turtles[2].position}`).append(`<img src="assets/images/turtle-3.png">`);
+    $(`#lane-4-position-${turtles[3].position}`).append(`<img src="assets/images/turtle-4.png">`);
+
+    // Remove start button after click
+    $('#start-race-button').remove()  
+
+    $('#race-buttons').append(`<button id="next-race-button">Next Race</button>`);
+
 });

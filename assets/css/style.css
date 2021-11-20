@@ -50,6 +50,10 @@ header {
     margin: 30px auto;
 }
 
+.placer img {
+    height: 50px;
+    width: 50px;
+}
 .start-position {
     margin-bottom: 80px;
 }

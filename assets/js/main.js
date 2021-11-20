@@ -28,6 +28,14 @@ let turtles = [{
     },
 ]
 
+// Array of Turtle images
+let turtleArray = [
+    `assets/images/turtle-1.png`,
+    'assets/images/turtle-2.png',
+    'assets/images/turtle-3.png',
+    `assets/images/turtle-4.png`
+];
+
 // Define empty array for possible odds
 let oddsArr = [];
 
@@ -110,14 +118,6 @@ defPositions();
 // Add event listener for page load
 document.addEventListener('DOMContentLoaded', function () {
 
-    // Array of Turtle images
-    var turtleArray = [
-        `assets/images/turtle-1.png`,
-        'assets/images/turtle-2.png',
-        'assets/images/turtle-3.png',
-        `assets/images/turtle-4.png`
-    ];
-
     // Define variable as an object for all .start-position divs
     var startPos = $('.start-position');
 
@@ -138,6 +138,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 });
 
+
 // Add event listener for click start button
 document.getElementById("start-race-button").addEventListener("click", function () {
 
@@ -154,8 +155,30 @@ document.getElementById("start-race-button").addEventListener("click", function 
     $(`#lane-4-position-${turtles[3].position}`).append(`<img src="assets/images/turtle-4.png">`);
 
     // Remove start button after click
-    $('#start-race-button').remove()  
+    document.getElementById("start-race-button").style.display = 'none';
+    document.getElementById("next-race-button").style.display = '';
 
-    $('#race-buttons').append(`<button id="next-race-button">Next Race</button>`);
 
+
+});
+
+document.getElementById("next-race-button").addEventListener("click", function () {
+    
+    // Empty all turtles
+    var allTurts = $('.placer');
+    for (i = 0; i < allTurts.length; i++) {
+        allTurts.empty();
+    }
+
+    // Define variable as an object for all .start-position divs
+    var startPos = $('.start-position');
+
+    // Loop through the start positions object and the turtle array, 
+    // inserting the images to the divs
+    for (let i = 0; i < startPos.length; i++) {
+        startPos[i].insertAdjacentHTML('beforeend', `<img src="${turtleArray[i]}">`);
+    }
+    
+    document.getElementById("start-race-button").style.display = '';
+    document.getElementById("next-race-button").style.display = 'none';
 });

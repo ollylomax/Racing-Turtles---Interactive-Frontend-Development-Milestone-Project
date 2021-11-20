@@ -49,31 +49,68 @@ do {
 }
 while (oddsArr.length < 4);
 
-
-console.log(oddsArr);
-
+// Function to update odds in turtle object from the odds array above
 function updateOddsAgainstTurtle() {
     for (let l in turtles) {
         turtles[l].odds = oddsArr[l]
-        console.log(turtles[l].odds)
     };
 }
 
-
-
-// Function to randomise the sequence of an array passed in as an argument
-function randomSeq(array) {
+// Function to shuffle an array passed in as an argument
+function shuffleArr(array) {
     for (let i = array.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
         [array[i], array[j]] = [array[j], array[i]];
     };
 };
 
+// Function to set finishing positions based on weighted odds
+function defPositions() {
+    // Call update odds function
+    updateOddsAgainstTurtle()
+    // Define an empty array to insert weighted odds
+    let weightsArr = [];
 
+    // Loop through turtles to declare odds weights
+    for (let i in turtles) {
+        let weights = Math.floor((100 / turtles[i].odds.upper) * turtles[i].odds.lower);
 
+        // Loop to push number of turtle names to weights array based on odds weights
+        let j = 0;
+        while (j < weights) {
+            weightsArr.push(turtles[i].name)
+            j++
+        }
+    }
 
+    // Shuffle the weights array using shuffle array function
+    shuffleArr(weightsArr);
 
+    // Define variable for each turtle final position
+    let finalPositions = 1;
 
+    // Loop throigh all 4 turtles
+    while (finalPositions < 5) {
+
+        // Loop to set final positions of turtles by taking first turtle from weights array
+        for (let i in turtles) {
+            if (weightsArr[0] === turtles[i].name) {
+                // Assign turtle position
+                turtles[i].position = finalPositions;
+                // Filter turtle from the weights array
+                weightsArr = weightsArr.filter(each => each != weightsArr[0])
+                finalPositions++;
+
+            }
+        }
+    }
+}
+defPositions();
+// Append to html
+$(`#lane-1-position-${turtles[0].position}`).append(`<img src="assets/images/turtle-1.png">`);
+$(`#lane-2-position-${turtles[1].position}`).append(`<img src="assets/images/turtle-2.png">`);
+$(`#lane-3-position-${turtles[2].position}`).append(`<img src="assets/images/turtle-3.png">`);
+$(`#lane-4-position-${turtles[3].position}`).append(`<img src="assets/images/turtle-4.png">`);
 
 // Add event listener for page load
 document.addEventListener('DOMContentLoaded', function () {
@@ -90,17 +127,12 @@ document.addEventListener('DOMContentLoaded', function () {
     var startPos = $('.start-position');
 
     // Loop through the start positions object and the turtle array, 
-    // appending the images to the divs
+    // inserting the images to the divs
     for (let i = 0; i < startPos.length; i++) {
         startPos[i].insertAdjacentHTML('beforeend', `<img src="${turtleArray[i]}">`);
     }
 
     $('#tokens')[0].innerHTML = 100;
-
-    // $(`#lane-1-odds`).append(`<p>${turtles[0].odds.upper}/${turtles[0].odds.lower}</p>`)
-    // $(`#lane-2-odds`).append(`<p>${turtles[1].odds.upper}/${turtles[1].odds.lower}</p>`)
-    // $(`#lane-3-odds`).append(`<p>${turtles[2].odds.upper}/${turtles[2].odds.lower}</p>`)
-    // $(`#lane-4-odds`).append(`<p>${turtles[3].odds.upper}/${turtles[3].odds.lower}</p>`)
 
     // Call function to update turtle odds to turtle object
     updateOddsAgainstTurtle()

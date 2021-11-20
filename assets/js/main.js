@@ -185,7 +185,7 @@ document.getElementById("next-race-button").addEventListener("click", function (
 
 
 
-
+// FIGURE OUT HOW TO CONSOLIDATE BELOW
 
 
 
@@ -270,5 +270,13 @@ function defPositions() {
 defPositions();
     // Call function to update turtle odds to turtle object
     updateOddsAgainstTurtle()
+    // Loop through odds divs and append odds from turtles object
+    var loadOdds = $('.odds');
+    // Empty current turtle odds
+    loadOdds.empty();
+    for (let i = 0; i < loadOdds.length; i++) {
+        loadOdds[i].append(turtles[i].odds.upper + '/' + turtles[i].odds.lower);
+    }
+    
 
 });

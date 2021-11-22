@@ -182,6 +182,9 @@ function betRestrict() {
 function showResults() {
     // var bets = $(".bet");
 
+    // Clear results div
+    $('#results').empty();
+
     // Loop to declare race winner
     turtles.forEach(function (arrayItem) {
 
@@ -195,6 +198,8 @@ function showResults() {
 
 
     turtles.forEach((turtle, index) => {
+
+
         var bets = Object.values(document.getElementsByClassName('bet'))[index];
 
         if (bets.value && turtle.position == 1) {
@@ -329,6 +334,18 @@ document.getElementById("next-race-button").addEventListener("click", function (
 
     // Call clear track function
     clearTrack()
+
+
+
+    // Reset bet boxes ***LOOP THROUGH THIS***
+    $(".bet")[0].value = '';
+    $(".bet")[0].disabled = false;
+    $(".bet")[1].value = '';
+    $(".bet")[1].disabled = false;
+    $(".bet")[2].value = '';
+    $(".bet")[2].disabled = false;
+    $(".bet")[3].value = '';
+    $(".bet")[3].disabled = false;
 
     // Clear results div
     $('#results').empty();

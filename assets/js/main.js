@@ -308,6 +308,14 @@ document.addEventListener('DOMContentLoaded', function () {
 document.getElementById("start-race-button").addEventListener("click", function () {
 
 
+    if (($(".bet")[0].value.length < 1)
+    && ($(".bet")[1].value.length < 1)
+    && ($(".bet")[2].value.length < 1)
+    && ($(".bet")[3].value.length < 1)) {
+        alert('YOU MUST PLACE A BET BEFORE THE RACE CAN START!');
+    } else {
+
+
     // Call set positions function
     setPositions();
     showResults(); // TEMP
@@ -326,7 +334,7 @@ document.getElementById("start-race-button").addEventListener("click", function 
     // Replace start race button with next race button
     document.getElementById("start-race-button").style.display = 'none';
     document.getElementById("next-race-button").style.display = '';
-
+    }
 });
 
 // Event listener for click next race button

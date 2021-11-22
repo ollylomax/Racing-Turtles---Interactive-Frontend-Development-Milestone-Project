@@ -1,13 +1,13 @@
 // Create consolidated turtles object with position and odds key values to append with functions
-let turtles = [{
-        name: "Turtle1",
+const turtles = [{
+        name: "Terry",
         position: "",
         odds: "",
         racetrack: "lane-1",
         img: "assets/images/turtle-1.png"
     },
     {
-        name: "Turtle2",
+        name: "Tamsin",
         position: "",
         odds: "",
         racetrack: "lane-2",
@@ -15,7 +15,7 @@ let turtles = [{
 
     },
     {
-        name: "Turtle3",
+        name: "Tabatha",
         position: "",
         odds: "",
         racetrack: "lane-3",
@@ -23,7 +23,7 @@ let turtles = [{
 
     },
     {
-        name: "Turtle4",
+        name: "Thaddius",
         position: "",
         odds: "",
         racetrack: "lane-4",
@@ -104,7 +104,6 @@ function shuffleArr(array) {
  * Set turtle weights from the odds generated
  * and from weights set finishing positions
  */
-// Function to set finishing positions based on weighted odds
 function setPositions() {
     // Define an empty array to insert weighted odds
     let weightsArr = [];
@@ -144,13 +143,118 @@ function setPositions() {
     }
 }
 
+/** FUNCTION #5
+ * Restrict betting to one input box and prevent
+ * certain numbers from being entered
+ */
+function betRestrict() {
+    // Ternary conditional to restrict numbers above user's total tokens
+    this.value=(this.value > parseInt($('#tokens')[0].innerHTML)) ? parseInt($('#tokens')[0].innerHTML) : this.value;
+    // Ternary conditional to prevent numbers below 1
+    this.value=(this.value < Number(1)) ? '' : this.value;
+
+    // Conditional statement to disable the other bet boxes when a value is entered
+    // into the chosen bet box
+    if ($(".bet")[0].value.length > 0) {
+        $(".bet")[1].disabled = true;
+        $(".bet")[2].disabled = true;
+        $(".bet")[3].disabled = true;
+    } else if ($(".bet")[1].value.length > 0) {
+        $(".bet")[0].disabled = true;
+        $(".bet")[2].disabled = true;
+        $(".bet")[3].disabled = true;
+    } else if ($(".bet")[2].value.length > 0) {
+        $(".bet")[0].disabled = true;
+        $(".bet")[1].disabled = true;
+        $(".bet")[3].disabled = true;
+    } else if ($(".bet")[3].value.length > 0) {
+        $(".bet")[0].disabled = true;
+        $(".bet")[1].disabled = true;
+        $(".bet")[2].disabled = true;
+    } else { 
+        $(".bet")[0].disabled = false;
+        $(".bet")[1].disabled = false;
+        $(".bet")[2].disabled = false;
+        $(".bet")[3].disabled = false;
+      }
+}
+
+function showResults() {
+    console.log(turtles[0].position);
+
+
+    var bets = $(".bet");
+    console.log(bets[0]);
+        
+        // if ((bets[0].value && turtles[0].position ==1) || 
+        // (bets[1].value && turtles[1].position ==1) ||
+        // (bets[2].value && turtles[2].position ==1) ||
+        // (bets[3].value && turtles[3].position ==1)
+        // ){
+        //     console.log('hello');
+        //     $('#results').append(`<p>YOU WON!!!!!</p>`);
+        // }
+    
+
+
+    if ($(".bet")[0].value && turtles[0].position ==1) {
+        var betVal = $(".bet")[0].value;
+        var betWinnings = Math.floor($(".bet")[0].value / turtles[0].odds.lower * (turtles[0].odds.upper));
+        $('#results').append(`
+        <p>${turtles[0].name} the turtle WON!!!!!</p>
+        <p>You bet ${betVal} Tokens</p>
+        <p>You won ${betWinnings} Tokens</p>
+        `);
+    } else if ($(".bet")[1].value && turtles[1].position ==1) {
+        var betVal = $(".bet")[1].value;
+        var betWinnings = Math.floor($(".bet")[1].value / turtles[1].odds.lower * (turtles[1].odds.upper));
+        $('#results').append(`
+        <p>${turtles[1].name} the turtle WON!!!!!</p>
+        <p>You bet ${betVal} Tokens</p>
+        <p>You won ${betWinnings} Tokens</p>
+        `);
+    } else if ($(".bet")[2].value && turtles[2].position ==1) {
+        var betVal = $(".bet")[2].value;
+        var betWinnings = Math.floor($(".bet")[2].value / turtles[2].odds.lower * (turtles[2].odds.upper));
+        $('#results').append(`
+        <p>${turtles[2].name} the turtle WON!!!!!</p>
+        <p>You bet ${betVal} Tokens</p>
+        <p>You won ${betWinnings} Tokens</p>
+        `);
+    } else if ($(".bet")[3].value && turtles[3].position ==1) {
+        var betVal = $(".bet")[3].value;
+        var betWinnings = Math.floor($(".bet")[3].value / turtles[3].odds.lower * (turtles[3].odds.upper));
+        $('#results').append(`
+        <p>${turtles[3].name} the turtle WON!!!!!</p>
+        <p>You bet ${betVal} Tokens</p>
+        <p>You won ${betWinnings} Tokens</p>
+        `);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // Add event listener for page load
 document.addEventListener('DOMContentLoaded', function () {
 
     // Call clear track function
     clearTrack();
 
-    $('#tokens')[0].innerHTML = 100;
+    $('#tokens')[0].innerHTML = parseInt(100) +1;
+    
+    
 
     // Call function to update turtle odds to turtle object
     setOdds();
@@ -161,9 +265,10 @@ document.addEventListener('DOMContentLoaded', function () {
 // Event listener for click start race button
 document.getElementById("start-race-button").addEventListener("click", function () {
 
+    
     // Call set positions function
     setPositions();
-
+    showResults(); // TEMP
     // Empty start positions
     $('#start-position-1').empty();
     $('#start-position-2').empty();
@@ -194,41 +299,14 @@ document.getElementById("next-race-button").addEventListener("click", function (
 
     setOdds();
 
-
 });
 
-let field1 = $(".bet")[0];
-let field2 = $(".bet")[1];
-let field3 = $(".bet")[2];
-let field4 = $(".bet")[3];
+// Event listener for bet box 1
+$(".bet")[0].addEventListener('input', betRestrict); // Call bet restrictions function on input
+// Event listener for bet box 2
+$(".bet")[1].addEventListener('input', betRestrict); // Call bet restrictions function on input
+// Event listener for bet box 3
+$(".bet")[2].addEventListener('input', betRestrict); // Call bet restrictions function on input
+// Event listener for bet box 4
+$(".bet")[3].addEventListener('input', betRestrict); // Call bet restrictions function on input
 
-function inputfunction() {
-    if (field1.value.length > 0) {
-        field2.disabled = true;
-        field3.disabled = true;
-        field4.disabled = true;
-    } else if (field2.value.length > 0) {
-        field1.disabled = true;
-        field3.disabled = true;
-        field4.disabled = true;
-    } else if (field3.value.length > 0) {
-        field1.disabled = true;
-        field2.disabled = true;
-        field4.disabled = true;
-    } else if (field4.value.length > 0) {
-        field1.disabled = true;
-        field2.disabled = true;
-        field3.disabled = true;
-    } else { 
-        field1.disabled = false;
-        field2.disabled = false;
-        field3.disabled = false;
-        field4.disabled = false;
-      }
-}
-
-
-field1.addEventListener('input', inputfunction);
-field2.addEventListener('input', inputfunction);
-field3.addEventListener('input', inputfunction);
-field4.addEventListener('input', inputfunction);

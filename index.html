@@ -33,7 +33,7 @@
             <div class="row no-gutters">
 
                 <div class="col-12 text-center">
-                    <img class ="turtle-logo" src="assets/images/turtle-header.png" alt="turtle logo">
+                    <img class="turtle-logo" src="assets/images/turtle-header.png" alt="turtle logo">
                     <h2 class="main-heading text-center text-uppercase">Racing Turtles</h2>
                 </div>
 
@@ -49,16 +49,17 @@
     <section>
 
         <div class="container-fluid game-container">
-            <div class="row">
+            <div class="row game-container-border">
 
                 <!-- Racetrack #1 -->
                 <div class="col-3 race-track race-track-1">
 
                     <!-- Odds indicator & input field -->
                     <div class="odds-box">
-                        <p>Turtle #1</p>
-                        <p class = "odds" id="lane-1-odds"></p>
-                        <input class="bet" type=number>
+                        <p>Terry</p>
+                        <p class="odds" id="lane-1-odds"></p>
+                        <input class="bet" type="number" min="1" onkeydown="return event.keyCode !== 190"
+                            onPaste="return false">
                     </div>
 
                     <!-- Starting position -->
@@ -78,9 +79,10 @@
 
                     <!-- Odds indicator & input field -->
                     <div class="odds-box">
-                        <p>Turtle #1</p>
-                        <p class = "odds" id="lane-2-odds"></p>
-                        <input class="bet" type=number>
+                        <p>Tamsin</p>
+                        <p class="odds" id="lane-2-odds"></p>
+                        <input class="bet" type="number" min="1" onkeydown="return event.keyCode !== 190"
+                            onPaste="return false">
                     </div>
 
                     <!-- Starting position -->
@@ -100,9 +102,10 @@
 
                     <!-- Odds indicator & input field -->
                     <div class="odds-box">
-                        <p>Turtle #1</p>
-                        <p class = "odds" id="lane-3-odds"></p>
-                        <input class="bet" type=number>
+                        <p>Tabatha</p>
+                        <p class="odds" id="lane-3-odds"></p>
+                        <input class="bet" type="number" min="1" onkeydown="return event.keyCode !== 190"
+                            onPaste="return false">
                     </div>
 
                     <!-- Starting position -->
@@ -122,9 +125,10 @@
 
                     <!-- Odds indicator & input field -->
                     <div class="odds-box">
-                        <p>Turtle #1</p>
-                        <p class = "odds" id="lane-4-odds"></p>
-                        <input class="bet" type=number>
+                        <p>Thaddius</p>
+                        <p class="odds" id="lane-4-odds"></p>
+                        <input class="bet" type="number" min="1" onkeydown="return event.keyCode !== 190"
+                            onPaste="return false">
                     </div>
 
                     <!-- Starting position -->
@@ -146,7 +150,7 @@
             <div class="row">
 
                 <div class="col-4">
-                    <p> Tokens <span id="tokens">t</span></p>
+                    <p> Tokens <span id="tokens">1</span></p>
                 </div>
 
                 <div class="col-4" id="race-buttons">
@@ -163,7 +167,7 @@
 
         <div class="container results-container">
             <div class="row">
-                <div class="col-12 text-center">
+                <div class="col-12 text-center" id="results">
                     RESULTS DISPLAYED HERE
                 </div>
             </div>

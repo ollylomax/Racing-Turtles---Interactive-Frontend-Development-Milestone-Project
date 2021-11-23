@@ -31,6 +31,8 @@ const turtles = [{
 
     },
 ]
+// Create array of bet input boxes from box class
+const bets = Object.values(document.getElementsByClassName('bet'));
 
 /** FUNCTION #1
  * Clear all turtles from race track if any exist
@@ -187,26 +189,22 @@ function showResults() {
 
     // Loop to declare race winner
     turtles.forEach(function (arrayItem) {
-
+        // Conditional to find position 1 from turtles object
         if (arrayItem.position == 1) {
             $('#results').append(`
         <p>${arrayItem.name} the turtle comes out on top!</p>`);
         }
-
     });
 
 
 
     turtles.forEach((turtle, index) => {
 
-
         var bets = Object.values(document.getElementsByClassName('bet'))[index];
+        var betVal = bets.value;
+        var betWinnings = Math.ceil(bets.value / turtle.odds.lower * (turtle.odds.upper));
 
         if (bets.value && turtle.position == 1) {
-
-
-            var betVal = bets.value;
-            var betWinnings = Math.ceil(bets.value / turtle.odds.lower * (turtle.odds.upper));
 
             $('#tokens')[0].innerHTML = parseInt($('#tokens')[0].innerHTML) + parseInt(betWinnings);
             $('#results').append(`
@@ -222,71 +220,9 @@ function showResults() {
             <p>Your tokens went down by ${betVal}</p>
             `);
         }
+        $('#tokens-dup')[0].innerHTML = $('#tokens')[0].innerHTML;
     });
-
-
-    // // Mammoth conditional
-    // if ($(".bet")[0].value && turtles[0].position == 1) {
-
-    //     var betVal = $(".bet")[0].value;
-    //     var betWinnings = Math.ceil($(".bet")[0].value / turtles[0].odds.lower * (turtles[0].odds.upper));
-    //     $('#tokens')[0].innerHTML = parseInt($('#tokens')[0].innerHTML) + parseInt(betWinnings);
-    //     $('#results').append(`
-    //     <p>${turtles[0].name} the turtle WON!!!!!</p>
-    //     <p>You bet ${betVal} Tokens</p>
-    //     <p>You won ${betWinnings} Tokens</p>
-    //     `);
-    // } else if ($(".bet")[0].value && turtles[0].position !== 1) {
-    //     var betVal = $(".bet")[0].value;
-    //     $('#tokens')[0].innerHTML = parseInt($('#tokens')[0].innerHTML) - parseInt(betVal);
-    //     $('#results').append(`
-    //     <p>${turtles[0].name} the turtle didn't win. Better luck next time :(</p>
-    //     <p>Your tokens went down by ${betVal}</p>
-    //     `);
-    // } else if ($(".bet")[1].value && turtles[1].position == 1) {
-    //     var betVal = $(".bet")[1].value;
-    //     var betWinnings = Math.floor($(".bet")[1].value / turtles[1].odds.lower * (turtles[1].odds.upper));
-    //     $('#results').append(`
-    //     <p>${turtles[1].name} the turtle WON!!!!!</p>
-    //     <p>You bet ${betVal} Tokens</p>
-    //     <p>You won ${betWinnings} Tokens</p>
-    //     `);
-    // } else if ($(".bet")[2].value && turtles[2].position == 1) {
-    //     var betVal = $(".bet")[2].value;
-    //     var betWinnings = Math.floor($(".bet")[2].value / turtles[2].odds.lower * (turtles[2].odds.upper));
-    //     $('#results').append(`
-    //     <p>${turtles[2].name} the turtle WON!!!!!</p>
-    //     <p>You bet ${betVal} Tokens</p>
-    //     <p>You won ${betWinnings} Tokens</p>
-    //     `);
-    // } else if ($(".bet")[3].value && turtles[3].position == 1) {
-    //     var betVal = $(".bet")[3].value;
-    //     var betWinnings = Math.floor($(".bet")[3].value / turtles[3].odds.lower * (turtles[3].odds.upper));
-    //     $('#results').append(`
-    //     <p>${turtles[3].name} the turtle WON!!!!!</p>
-    //     <p>You bet ${betVal} Tokens</p>
-    //     <p>You won ${betWinnings} Tokens</p>
-    //     `);
-    // } else {
-    //     $('#results').append(`
-    //     <p>You didn't win. Better luck next time :(</p>
-    //     `);
-    // }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // Add event listener for page load
 document.addEventListener('DOMContentLoaded', function () {
@@ -294,46 +230,42 @@ document.addEventListener('DOMContentLoaded', function () {
     // Call clear track function
     clearTrack();
 
-    $('#tokens')[0].innerHTML = parseInt(100) + 1;
-
-
-
     // Call function to update turtle odds to turtle object
     setOdds();
 
 });
 
-
 // Event listener for click start race button
 document.getElementById("start-race-button").addEventListener("click", function () {
 
-
-    if (($(".bet")[0].value.length < 1)
-    && ($(".bet")[1].value.length < 1)
-    && ($(".bet")[2].value.length < 1)
-    && ($(".bet")[3].value.length < 1)) {
+    // Conditional statement to prevent starting race without input from user
+    if (((bets[0].value.length < 1) &&
+            (bets[1].value.length < 1) &&
+            (bets[2].value.length < 1) &&
+            (bets[3].value.length < 1))) {
         alert('YOU MUST PLACE A BET BEFORE THE RACE CAN START!');
     } else {
+        // Increment race counter
+        $('#counter')[0].innerHTML++;
+        // Call set positions function
+        setPositions();
+        // Call show results function
+        showResults();
+        // Empty start positions
+        $('#start-position-1').empty();
+        $('#start-position-2').empty();
+        $('#start-position-3').empty();
+        $('#start-position-4').empty();
 
+        // Append turtle positions to html
+        $(`#lane-1-position-${turtles[0].position}`).append(`<img src="assets/images/turtle-1.png">`);
+        $(`#lane-2-position-${turtles[1].position}`).append(`<img src="assets/images/turtle-2.png">`);
+        $(`#lane-3-position-${turtles[2].position}`).append(`<img src="assets/images/turtle-3.png">`);
+        $(`#lane-4-position-${turtles[3].position}`).append(`<img src="assets/images/turtle-4.png">`);
 
-    // Call set positions function
-    setPositions();
-    showResults(); // TEMP
-    // Empty start positions
-    $('#start-position-1').empty();
-    $('#start-position-2').empty();
-    $('#start-position-3').empty();
-    $('#start-position-4').empty();
-
-    // Append turtle positions to html
-    $(`#lane-1-position-${turtles[0].position}`).append(`<img src="assets/images/turtle-1.png">`);
-    $(`#lane-2-position-${turtles[1].position}`).append(`<img src="assets/images/turtle-2.png">`);
-    $(`#lane-3-position-${turtles[2].position}`).append(`<img src="assets/images/turtle-3.png">`);
-    $(`#lane-4-position-${turtles[3].position}`).append(`<img src="assets/images/turtle-4.png">`);
-
-    // Replace start race button with next race button
-    document.getElementById("start-race-button").style.display = 'none';
-    document.getElementById("next-race-button").style.display = '';
+        // Replace start race button with next race button
+        document.getElementById("start-race-button").style.display = 'none';
+        document.getElementById("next-race-button").style.display = '';
     }
 });
 
@@ -343,17 +275,11 @@ document.getElementById("next-race-button").addEventListener("click", function (
     // Call clear track function
     clearTrack()
 
-
-
-    // Reset bet boxes ***LOOP THROUGH THIS***
-    $(".bet")[0].value = '';
-    $(".bet")[0].disabled = false;
-    $(".bet")[1].value = '';
-    $(".bet")[1].disabled = false;
-    $(".bet")[2].value = '';
-    $(".bet")[2].disabled = false;
-    $(".bet")[3].value = '';
-    $(".bet")[3].disabled = false;
+    // Loop to reset bet boxes
+    for (i = 0; i < bets.length; i++) {
+        bets[i].value = '';
+        bets[i].disabled = false;
+    };
 
     // Clear results div
     $('#results').empty();
@@ -363,15 +289,11 @@ document.getElementById("next-race-button").addEventListener("click", function (
     document.getElementById("start-race-button").style.display = '';
     document.getElementById("next-race-button").style.display = 'none';
 
+    // Call set odds function to set odds for new race
     setOdds();
-
 });
 
-// Event listener for bet box 1
-$(".bet")[0].addEventListener('input', betRestrict); // Call bet restrictions function on input
-// Event listener for bet box 2
-$(".bet")[1].addEventListener('input', betRestrict); // Call bet restrictions function on input
-// Event listener for bet box 3
-$(".bet")[2].addEventListener('input', betRestrict); // Call bet restrictions function on input
-// Event listener for bet box 4
-$(".bet")[3].addEventListener('input', betRestrict); // Call bet restrictions function on input
+// Event listener loop for bet boxes
+for (i = 0; i < bets.length; i++) {
+    bets[i].addEventListener('input', betRestrict); // Call bet restrictions function on input
+};

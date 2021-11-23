@@ -51,6 +51,22 @@ function clearTrack() {
     for (let i = 0; i < startPos.length; i++) {
         startPos[i].insertAdjacentHTML('beforeend', `<img src=${turtles[i].img}>`);
     }
+    // Loop to reset bet boxes
+    for (i = 0; i < bets.length; i++) {
+        bets[i].value = '';
+        bets[i].disabled = false;
+    };
+
+    // Clear results div
+    $('#results').empty();
+    $('#results').append('Place your bet and good luck!');
+
+    // Replace next race button with start race button
+    document.getElementById("start-race-button").style.display = '';
+    document.getElementById("next-race-button").style.display = 'none';
+
+    // // Call set odds function to set odds for new race
+    // setOdds();
 }
 
 /** FUNCTION #2
@@ -65,7 +81,7 @@ function setOdds() {
     do {
         let upperRandom = Math.floor((Math.random() * 20) + 1);
         let lowerRandom = Math.floor((Math.random() * 3) + 1);
-        // Conditional argument to omit two even numbers or two 3's
+        // Conditional statement to prevent divisible odds with exception of 1/1 
         if (upperRandom % lowerRandom == 0 && (upperRandom !== 1 && lowerRandom !== 1)) {
             let upperRandom = Math.floor((Math.random() * 20) + 1);
             let lowerRandom = Math.floor((Math.random() * 3) + 1);
@@ -181,8 +197,11 @@ function betRestrict() {
     }
 }
 
+/** FUNCTION #6
+ * Declare results of race in results box and
+ * inform user of tokens gained/lost, then update token values
+ */
 function showResults() {
-    // var bets = $(".bet");
 
     // Clear results div
     $('#results').empty();
@@ -192,18 +211,21 @@ function showResults() {
         // Conditional to find position 1 from turtles object
         if (arrayItem.position == 1) {
             $('#results').append(`
-        <p>${arrayItem.name} the turtle comes out on top!</p>`);
+        <p>${arrayItem.name} won the race!</p>`);
         }
     });
-
-
-
+    // Loop to iterate through both bet values and turtle positions
+    // then insert template literal informing user of token gains/losses 
     turtles.forEach((turtle, index) => {
 
+        // Create an array of values from bet class object and save in variable
         var bets = Object.values(document.getElementsByClassName('bet'))[index];
+        // Variable for user bet input
         var betVal = bets.value;
+        // Variable for holding bet winnings calculation
         var betWinnings = Math.ceil(bets.value / turtle.odds.lower * (turtle.odds.upper));
 
+        // Conditional statement to find winner and insert relevant template literal
         if (bets.value && turtle.position == 1) {
 
             $('#tokens')[0].innerHTML = parseInt($('#tokens')[0].innerHTML) + parseInt(betWinnings);
@@ -212,6 +234,7 @@ function showResults() {
             <p>You bet ${betVal} Tokens</p>
             <p>You won ${betWinnings} Tokens</p>
             `);
+        // Conditional statement to find losers and insert relevant template literal
         } else if (bets.value && turtle.position !== 1) {
             var betVal = bets.value;
             $('#tokens')[0].innerHTML = parseInt($('#tokens')[0].innerHTML) - parseInt(betVal);
@@ -220,7 +243,14 @@ function showResults() {
             <p>Your tokens went down by ${betVal}</p>
             `);
         }
+        // Update progress tokens span
         $('#tokens-dup')[0].innerHTML = $('#tokens')[0].innerHTML;
+        // Conditional statement for grammar
+        if ($('#counter')[0].innerHTML ==1) {
+            $('#races')[0].innerHTML = ' Race';
+        } else {
+            $('#races')[0].innerHTML = ' Races';
+        }
     });
 }
 
@@ -267,6 +297,18 @@ document.getElementById("start-race-button").addEventListener("click", function 
         document.getElementById("start-race-button").style.display = 'none';
         document.getElementById("next-race-button").style.display = '';
     }
+
+    // Conditional logic to show Win and Lose game modals
+    if ($('#tokens')[0].innerHTML >= 101) {
+        $('#myModal').modal('show');
+        $('#game-modal-title')[0].innerHTML = "Reached 1000+ Tokens!"
+        $('#game-modal-body')[0].innerHTML = "YOU WON THE GAME!!!"
+    } else if ($('#tokens')[0].innerHTML < 1) {
+        $('#myModal').modal('show');
+        $('#game-modal-title')[0].innerHTML = "You ran out of Tokens :("
+        $('#game-modal-body')[0].innerHTML = "Restart the game and try again!"
+    }
+
 });
 
 // Event listener for click next race button
@@ -275,25 +317,30 @@ document.getElementById("next-race-button").addEventListener("click", function (
     // Call clear track function
     clearTrack()
 
-    // Loop to reset bet boxes
-    for (i = 0; i < bets.length; i++) {
-        bets[i].value = '';
-        bets[i].disabled = false;
-    };
-
-    // Clear results div
-    $('#results').empty();
-    $('#results').append('Place your bet and good luck!');
-
-    // Replace next race button with start race button
-    document.getElementById("start-race-button").style.display = '';
-    document.getElementById("next-race-button").style.display = 'none';
-
-    // Call set odds function to set odds for new race
+    // Call function to update turtle odds to turtle object
     setOdds();
+
 });
 
 // Event listener loop for bet boxes
 for (i = 0; i < bets.length; i++) {
     bets[i].addEventListener('input', betRestrict); // Call bet restrictions function on input
 };
+
+
+
+
+// // Event listener for restart button on modal
+document.getElementById("restart").addEventListener("click", function () {
+    $('#myModal').modal('hide');
+});
+
+// Reset tokens and counter with close modal event handler
+$('#myModal').on('hide.bs.modal', function(){
+    // Call clear track function
+    clearTrack();
+
+    $('#tokens')[0].innerHTML = 100;
+    $('#tokens-dup')[0].innerHTML = $('#tokens')[0].innerHTML;
+    $('#counter')[0].innerHTML = 0;
+})

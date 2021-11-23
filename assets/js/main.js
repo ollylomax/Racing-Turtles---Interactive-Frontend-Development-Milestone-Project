@@ -299,7 +299,7 @@ document.getElementById("start-race-button").addEventListener("click", function 
     }
 
     // Conditional logic to show Win and Lose game modals
-    if ($('#tokens')[0].innerHTML >= 101) {
+    if ($('#tokens')[0].innerHTML >= 1000) {
         $('#myModal').modal('show');
         $('#game-modal-title')[0].innerHTML = "Reached 1000+ Tokens!"
         $('#game-modal-body')[0].innerHTML = "YOU WON THE GAME!!!"
@@ -343,4 +343,7 @@ $('#myModal').on('hide.bs.modal', function(){
     $('#tokens')[0].innerHTML = 100;
     $('#tokens-dup')[0].innerHTML = $('#tokens')[0].innerHTML;
     $('#counter')[0].innerHTML = 0;
+
+    // Call set odds function
+    setOdds();
 })

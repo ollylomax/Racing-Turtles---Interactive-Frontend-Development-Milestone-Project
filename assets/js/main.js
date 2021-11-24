@@ -1,5 +1,7 @@
-let progress = document.getElementById("progress-inner");
+// Set variable for starting progress bar width
 let progressWidth = 10;
+// Set variable for inner progress bar
+const progress = document.getElementById("progress-inner");
 // Create array of bet input boxes from box class
 const bets = Object.values(document.getElementsByClassName('bet'));
 
@@ -37,7 +39,6 @@ const turtles = [{
     },
 ]
 
-
 /** FUNCTION #1
  * Clear all turtles from race track if any exist
  * then assign turtles to start positions
@@ -48,7 +49,7 @@ function clearTrack() {
     for (i = 0; i < allTurts.length; i++) {
         allTurts.empty();
     }
-    // Define variable for all .start-position divs
+    // Define variable for all start-position class divs
     var startPos = $('.start-position');
 
     // Loop through turtles object and insert turtle images to start positions
@@ -111,16 +112,6 @@ function setOdds() {
 }
 
 /** FUNCTION #3
- * Shuffle an array passed in as an argument
- */
-function shuffleArr(array) {
-    for (let i = array.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [array[i], array[j]] = [array[j], array[i]];
-    };
-};
-
-/** FUNCTION #4
  * Set turtle weights from the odds generated
  * and from weights set finishing positions
  */
@@ -140,15 +131,17 @@ function setPositions() {
         }
     }
 
-    // Shuffle the weights array using shuffle array function
-    shuffleArr(weightsArr);
+    // Loop to shuffle the weights array
+    for (let i = weightsArr.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [weightsArr[i], weightsArr[j]] = [weightsArr[j], weightsArr[i]];
+    };
 
     // Define variable for each turtle final position
     let finalPositions = 1;
 
     // Loop throigh all 4 turtles
     while (finalPositions < 5) {
-
         // Loop to set final positions of turtles by taking first turtle from weights array
         for (let i in turtles) {
             if (weightsArr[0] === turtles[i].name) {
@@ -157,10 +150,31 @@ function setPositions() {
                 // Filter turtle from the weights array
                 weightsArr = weightsArr.filter(each => each != weightsArr[0])
                 finalPositions++;
-
             }
         }
     }
+}
+
+/** FUNCTION #4
+ * Empty the turtle start positions and append turtles 
+ * to their final positions set from previous function
+ */
+function startRace() {
+    // Empty start positions
+    $('#start-position-1').empty();
+    $('#start-position-2').empty();
+    $('#start-position-3').empty();
+    $('#start-position-4').empty();
+
+    // Append turtle positions to html
+    $(`#lane-1-position-${turtles[0].position}`).append(`<img src="assets/images/turtle-1.png">`);
+    $(`#lane-2-position-${turtles[1].position}`).append(`<img src="assets/images/turtle-2.png">`);
+    $(`#lane-3-position-${turtles[2].position}`).append(`<img src="assets/images/turtle-3.png">`);
+    $(`#lane-4-position-${turtles[3].position}`).append(`<img src="assets/images/turtle-4.png">`);
+
+    // Replace start race button with next race button
+    document.getElementById("start-race-button").style.display = 'none';
+    document.getElementById("next-race-button").style.display = '';
 }
 
 /** FUNCTION #5
@@ -232,12 +246,10 @@ function showResults() {
 
             // Update tokens span
             $('#tokens')[0].innerHTML = parseInt($('#tokens')[0].innerHTML) + parseInt(betWinnings);
+            // Update variable for progress bar width
             progressWidth = progressWidth + (betWinnings / 10);
+            // Apply new progress bar width to progress css style
             progress.style.width = progressWidth + '%';
-            console.log(progress.style.width);
-
-
-
             // Add/remove class to tokens wrapper to simulate shake effect within css
             var wrapper = document.querySelector('#tokens-wrapper');
             wrapper.classList.add('shake', 'green');
@@ -254,14 +266,10 @@ function showResults() {
             var betVal = bets.value;
             // Update tokens span
             $('#tokens')[0].innerHTML = parseInt($('#tokens')[0].innerHTML) - parseInt(betVal);
-
+            // Update variable for progress bar width
             progressWidth = progressWidth - (betVal / 10);
+            // Apply new progress bar width to progress css style
             progress.style.width = progressWidth + '%';
-            console.log(progress.style.width);
-
-
-
-
             // Add/remove class to tokens wrapper to simulate shake effect within css
             var wrapper = document.querySelector('#tokens-wrapper');
             wrapper.classList.add('shake', 'red');
@@ -276,14 +284,6 @@ function showResults() {
         // Update progress tokens span
         $('#tokens-dup')[0].innerHTML = $('#tokens')[0].innerHTML;
 
-
-
-
-
-
-
-
-
         // Conditional statement for grammar
         if ($('#counter')[0].innerHTML == 1) {
             $('#races')[0].innerHTML = ' Race';
@@ -291,6 +291,23 @@ function showResults() {
             $('#races')[0].innerHTML = ' Races';
         }
     });
+}
+
+/** FUNCTION #7
+ * Display modal dialogs if user runs out of tokens (loses game)
+ * or reaches 1000 or more tokens (wins game)
+ */
+function checkWinLose() {
+    // Conditional logic to show Win and Lose game modals
+    if ($('#tokens')[0].innerHTML >= 1000) {
+        $('#myModal').modal('show');
+        $('#game-modal-title')[0].innerHTML = "Reached 1000+ Tokens!"
+        $('#game-modal-body')[0].innerHTML = "YOU WON THE GAME!!!"
+    } else if ($('#tokens')[0].innerHTML < 1) {
+        $('#myModal').modal('show');
+        $('#game-modal-title')[0].innerHTML = "You ran out of Tokens :("
+        $('#game-modal-body')[0].innerHTML = "Restart the game and try again!"
+    }
 }
 
 // Add event listener for page load
@@ -318,36 +335,14 @@ document.getElementById("start-race-button").addEventListener("click", function 
         $('#counter')[0].innerHTML++;
         // Call set positions function
         setPositions();
+        // Call start race function
+        startRace();
         // Call show results function
         showResults();
-        // Empty start positions
-        $('#start-position-1').empty();
-        $('#start-position-2').empty();
-        $('#start-position-3').empty();
-        $('#start-position-4').empty();
+        // Call check win/lose function
+        checkWinLose();
 
-        // Append turtle positions to html
-        $(`#lane-1-position-${turtles[0].position}`).append(`<img src="assets/images/turtle-1.png">`);
-        $(`#lane-2-position-${turtles[1].position}`).append(`<img src="assets/images/turtle-2.png">`);
-        $(`#lane-3-position-${turtles[2].position}`).append(`<img src="assets/images/turtle-3.png">`);
-        $(`#lane-4-position-${turtles[3].position}`).append(`<img src="assets/images/turtle-4.png">`);
-
-        // Replace start race button with next race button
-        document.getElementById("start-race-button").style.display = 'none';
-        document.getElementById("next-race-button").style.display = '';
     }
-
-    // Conditional logic to show Win and Lose game modals
-    if ($('#tokens')[0].innerHTML >= 1000) {
-        $('#myModal').modal('show');
-        $('#game-modal-title')[0].innerHTML = "Reached 1000+ Tokens!"
-        $('#game-modal-body')[0].innerHTML = "YOU WON THE GAME!!!"
-    } else if ($('#tokens')[0].innerHTML < 1) {
-        $('#myModal').modal('show');
-        $('#game-modal-title')[0].innerHTML = "You ran out of Tokens :("
-        $('#game-modal-body')[0].innerHTML = "Restart the game and try again!"
-    }
-
 });
 
 // Event listener for click next race button
@@ -366,9 +361,6 @@ for (i = 0; i < bets.length; i++) {
     bets[i].addEventListener('input', betRestrict); // Call bet restrictions function on input
 };
 
-
-
-
 // // Event listener for restart button on modal
 document.getElementById("restart").addEventListener("click", function () {
     $('#myModal').modal('hide');
@@ -379,8 +371,11 @@ $('#myModal').on('hide.bs.modal', function () {
     // Call clear track function
     clearTrack();
 
+    // Reset tokens
     $('#tokens')[0].innerHTML = 100;
     $('#tokens-dup')[0].innerHTML = $('#tokens')[0].innerHTML;
+    
+    // Rest counter
     $('#counter')[0].innerHTML = 0;
 
     // Reset progress bar
@@ -390,3 +385,26 @@ $('#myModal').on('hide.bs.modal', function () {
     // Call set odds function
     setOdds();
 })
+
+
+let turtPorts = ['assets/images/turt-port-1.png',
+'assets/images/turt-port-2.png',
+'assets/images/turt-port-3.png',
+'assets/images/turt-port-4.png',
+'assets/images/turt-port-5.png',
+'assets/images/turt-port-6.png',
+'assets/images/turt-port-7.png']
+
+var portPos = $('.odds-box');
+
+function shuffle(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    };
+};
+
+shuffle(turtPorts);
+for (let i = 0; i < portPos.length; i++) {
+    portPos[i].insertAdjacentHTML('afterbegin', `<img src=${turtPorts[i]}>`);
+}

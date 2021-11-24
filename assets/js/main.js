@@ -1,3 +1,8 @@
+let progress = document.getElementById("progress-inner");
+let progressWidth = 10;
+// Create array of bet input boxes from box class
+const bets = Object.values(document.getElementsByClassName('bet'));
+
 // Create consolidated turtles object with position and odds key values to append with functions
 const turtles = [{
         name: "Terry",
@@ -31,8 +36,7 @@ const turtles = [{
 
     },
 ]
-// Create array of bet input boxes from box class
-const bets = Object.values(document.getElementsByClassName('bet'));
+
 
 /** FUNCTION #1
  * Clear all turtles from race track if any exist
@@ -65,8 +69,6 @@ function clearTrack() {
     document.getElementById("start-race-button").style.display = '';
     document.getElementById("next-race-button").style.display = 'none';
 
-    // // Call set odds function to set odds for new race
-    // setOdds();
 }
 
 /** FUNCTION #2
@@ -228,16 +230,44 @@ function showResults() {
         // Conditional statement to find winner and insert relevant template literal
         if (bets.value && turtle.position == 1) {
 
+            // Update tokens span
             $('#tokens')[0].innerHTML = parseInt($('#tokens')[0].innerHTML) + parseInt(betWinnings);
+            progressWidth = progressWidth + (betWinnings / 10);
+            progress.style.width = progressWidth + '%';
+            console.log(progress.style.width);
+
+
+
+            // Add/remove class to tokens wrapper to simulate shake effect within css
+            var wrapper = document.querySelector('#tokens-wrapper');
+            wrapper.classList.add('shake', 'green');
+            setTimeout(function () {
+                wrapper.classList.remove('shake', 'green');
+            }, 1000);
+            // Update results box with race result and tokens won/lost
             $('#results').append(`
             <p>YOU WON!!!!!</p>
-            <p>You bet ${betVal} Tokens</p>
-            <p>You won ${betWinnings} Tokens</p>
+            <p>You bet ${betVal} Tokens and won ${betWinnings} Tokens</p>
             `);
-        // Conditional statement to find losers and insert relevant template literal
+            // Conditional statement to find losers and insert relevant template literal
         } else if (bets.value && turtle.position !== 1) {
             var betVal = bets.value;
+            // Update tokens span
             $('#tokens')[0].innerHTML = parseInt($('#tokens')[0].innerHTML) - parseInt(betVal);
+
+            progressWidth = progressWidth - (betVal / 10);
+            progress.style.width = progressWidth + '%';
+            console.log(progress.style.width);
+
+
+
+
+            // Add/remove class to tokens wrapper to simulate shake effect within css
+            var wrapper = document.querySelector('#tokens-wrapper');
+            wrapper.classList.add('shake', 'red');
+            setTimeout(function () {
+                wrapper.classList.remove('shake', 'red');
+            }, 1000);
             $('#results').append(`
             <p>${turtle.name} the turtle didn't win. Better luck next time :(</p>
             <p>Your tokens went down by ${betVal}</p>
@@ -245,8 +275,17 @@ function showResults() {
         }
         // Update progress tokens span
         $('#tokens-dup')[0].innerHTML = $('#tokens')[0].innerHTML;
+
+
+
+
+
+
+
+
+
         // Conditional statement for grammar
-        if ($('#counter')[0].innerHTML ==1) {
+        if ($('#counter')[0].innerHTML == 1) {
             $('#races')[0].innerHTML = ' Race';
         } else {
             $('#races')[0].innerHTML = ' Races';
@@ -336,13 +375,17 @@ document.getElementById("restart").addEventListener("click", function () {
 });
 
 // Reset tokens and counter with close modal event handler
-$('#myModal').on('hide.bs.modal', function(){
+$('#myModal').on('hide.bs.modal', function () {
     // Call clear track function
     clearTrack();
 
     $('#tokens')[0].innerHTML = 100;
     $('#tokens-dup')[0].innerHTML = $('#tokens')[0].innerHTML;
     $('#counter')[0].innerHTML = 0;
+
+    // Reset progress bar
+    progressWidth = 10;
+    progress.style.width = progressWidth + '%';
 
     // Call set odds function
     setOdds();

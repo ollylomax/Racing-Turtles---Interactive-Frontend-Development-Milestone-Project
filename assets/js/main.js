@@ -7,14 +7,14 @@ const bets = Object.values(document.getElementsByClassName('bet'));
 
 // Create consolidated turtles object with position and odds key values to append with functions
 const turtles = [{
-        name: "Terry",
+        name: "",
         position: "",
         odds: "",
         racetrack: "lane-1",
         img: "assets/images/turtle-1.png"
     },
     {
-        name: "Tamsin",
+        name: "",
         position: "",
         odds: "",
         racetrack: "lane-2",
@@ -22,7 +22,7 @@ const turtles = [{
 
     },
     {
-        name: "Tabatha",
+        name: "",
         position: "",
         odds: "",
         racetrack: "lane-3",
@@ -30,7 +30,7 @@ const turtles = [{
 
     },
     {
-        name: "Thaddius",
+        name: "",
         position: "",
         odds: "",
         racetrack: "lane-4",
@@ -52,9 +52,9 @@ function clearTrack() {
     // Define variable for all start-position class divs
     var startPos = $('.start-position');
 
-    // Loop through turtles object and insert turtle images to start positions
+    // Loop through turtles object and insert turtle icons to start positions
     for (let i = 0; i < startPos.length; i++) {
-        startPos[i].insertAdjacentHTML('beforeend', `<img src=${turtles[i].img}>`);
+        startPos[i].insertAdjacentHTML('beforeend', `<img src=${turtles[i].img} alt=Turtle icon>`);
     }
     // Loop to reset bet boxes
     for (i = 0; i < bets.length; i++) {
@@ -64,7 +64,14 @@ function clearTrack() {
 
     // Clear results div
     $('#results').empty();
-    $('#results').append('Place your bet and good luck!');
+    $('#results').append(`
+    <ul>
+        <li>Decide which Turtle you want to bet tokens on</li>
+        <li>Place the token amount in the corresponding box</li>
+        <li>Click on Start Race to see which Turtle wins</li>
+        <li>Keep on betting until you reack 1000 Tokens!</li>
+    </ul>
+    `);
 
     // Replace next race button with start race button
     document.getElementById("start-race-button").style.display = '';
@@ -99,8 +106,8 @@ function setOdds() {
     while (oddsArr.length < 4);
 
     // Loop to update odds in turtle object from the odds array above
-    for (let l in turtles) {
-        turtles[l].odds = oddsArr[l]
+    for (let i in turtles) {
+        turtles[i].odds = oddsArr[i];
     };
 
     // Empty current turtle odds
@@ -374,7 +381,7 @@ $('#myModal').on('hide.bs.modal', function () {
     // Reset tokens
     $('#tokens')[0].innerHTML = 100;
     $('#tokens-dup')[0].innerHTML = $('#tokens')[0].innerHTML;
-    
+
     // Rest counter
     $('#counter')[0].innerHTML = 0;
 
@@ -387,13 +394,26 @@ $('#myModal').on('hide.bs.modal', function () {
 })
 
 
-let turtPorts = ['assets/images/turt-port-1.png',
-'assets/images/turt-port-2.png',
-'assets/images/turt-port-3.png',
-'assets/images/turt-port-4.png',
-'assets/images/turt-port-5.png',
-'assets/images/turt-port-6.png',
-'assets/images/turt-port-7.png']
+
+
+
+let turtPorts = ['assets/images/turtle-portraits/turt-port-1.png',
+    'assets/images/turtle-portraits/turt-port-2.png', 'assets/images/turtle-portraits/turt-port-3.png',
+    'assets/images/turtle-portraits/turt-port-4.png', 'assets/images/turtle-portraits/turt-port-5.png',
+    'assets/images/turtle-portraits/turt-port-6.png', 'assets/images/turtle-portraits/turt-port-7.png',
+    'assets/images/turtle-portraits/turt-port-8.png', 'assets/images/turtle-portraits/turt-port-9.png',
+    'assets/images/turtle-portraits/turt-port-10.png', 'assets/images/turtle-portraits/turt-port-11.png',
+    'assets/images/turtle-portraits/turt-port-12.png', 'assets/images/turtle-portraits/turt-port-13.png',
+    'assets/images/turtle-portraits/turt-port-14.png', 'assets/images/turtle-portraits/turt-port-15.png',
+    'assets/images/turtle-portraits/turt-port-16.png', 'assets/images/turtle-portraits/turt-port-17.png',
+    'assets/images/turtle-portraits/turt-port-18.png', 'assets/images/turtle-portraits/turt-port-19.png',
+    'assets/images/turtle-portraits/turt-port-20.png', 'assets/images/turtle-portraits/turt-port-21.png',
+    'assets/images/turtle-portraits/turt-port-22.png', 'assets/images/turtle-portraits/turt-port-23.png',
+    'assets/images/turtle-portraits/turt-port-24.png', 'assets/images/turtle-portraits/turt-port-25.png',
+    'assets/images/turtle-portraits/turt-port-26.png', 'assets/images/turtle-portraits/turt-port-27.png',
+    'assets/images/turtle-portraits/turt-port-28.png'
+]
+
 
 var portPos = $('.odds-box');
 
@@ -406,5 +426,20 @@ function shuffle(array) {
 
 shuffle(turtPorts);
 for (let i = 0; i < portPos.length; i++) {
-    portPos[i].insertAdjacentHTML('afterbegin', `<img src=${turtPorts[i]}>`);
+    portPos[i].insertAdjacentHTML('afterbegin', `<img src=${turtPorts[i]} alt="Turtle portrait">`);
+}
+
+let namesArr = ['Toby', 'Tamsin', 'Tabatha', 'Thaddius', 'Thelma', 'Tim', 'Thelvin',
+    'Tammy', 'Trevor', 'Tom', 'Ted', 'Tess', 'Tyler', 'Theo', 'Tallulah', 'Tara', 'Tianna',
+    'Travis', 'Tristan', 'Theo', 'Tobias', 'Taye', 'Tayler', 'Teejay', 'Tazmin', 'Thierry', 'Tiara'
+]
+shuffle(namesArr);
+turtles.forEach((turtle, index) => {
+    var name = namesArr[index];
+    turtle.name = name;
+});
+
+var turtNames = $('.turt-name');
+for (let i = 0; i < turtNames.length; i++) {
+    turtNames[i].insertAdjacentHTML('beforeend', `<p>${turtles[i].name}</p>`);
 }

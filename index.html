@@ -36,16 +36,16 @@
     <!-- Header -->
     <header>
 
-        <div class="container">
+        <div class="container" id="heading-container">
             <div class="row no-gutters">
 
                 <div class="col-12 text-center">
                     <img class="turtle-logo" src="assets/images/turtle-header.png" alt="turtle logo">
-                    <h2 class="main-heading text-center text-uppercase">Racing Turtles</h2>
+                    <h1 class="text-center text-uppercase">Racing Turtles</h1>
                 </div>
 
                 <div class="col-12">
-                    <h2 class="sub-heading text-center">Bet on Turtles and try to reach 1000 Tokens!</h2>
+                    <h2 class="text-center">Bet on Turtles and try to reach 1000 Tokens!</h2>
                 </div>
 
             </div>
@@ -54,145 +54,149 @@
     </header>
     <!-- header ends -->
 
-    <!-- Race Section -->
-    <section class="container-fluid game-container">
-        <div class="row game-container-border">
+    <!-- Game -->
+    <main>
+        <!-- Race Section -->
+        <section class="container-fluid race-container">
+            <div class="row race-track-wrapper">
 
-            <!-- Racetrack #1 -->
-            <div class="col-3 race-track" id="race-track-1">
+                <!-- Racetrack #1 -->
+                <div class="col-3 race-track" id="race-track-1">
 
-                <!-- Odds indicator & input field -->
-                <div class="odds-box">
-                    <p class="turt-name"></p>
-                    <p class="odds" id="lane-1-odds"></p>
-                    <input class="bet" type="number" min="1" onkeydown="return event.keyCode !== 190"
-                        onPaste="return false">
-                </div>
+                    <!-- Odds indicator & input field -->
+                    <div class="odds-box">
+                        <p class="turt-name"></p>
+                        <p class="odds" id="lane-1-odds"></p>
+                        <input class="bet" type="number" min="1" onkeydown="return event.keyCode !== 190"
+                            onPaste="return false" aria-label="Place bet on turtle 1 here">
+                    </div>
 
-                <!-- Starting position -->
-                <div class="placer start-position" id="start-position-1"></div>
+                    <!-- Starting position -->
+                    <div class="placer start-position" id="start-position-1"></div>
 
-                <!-- Finishing positions -->
-                <div>
-                    <div class="placer 1st-position" id="lane-1-position-4"></div>
-                    <div class="placer 2nd-position" id="lane-1-position-3"></div>
-                    <div class="placer 3rd-position" id="lane-1-position-2"></div>
-                    <div class="placer 4th-position" id="lane-1-position-1"></div>
-                </div>
-            </div>
-
-            <!-- Racetrack #2 -->
-            <div class="col-3 race-track" id="race-track-2">
-
-                <!-- Odds indicator & input field -->
-                <div class="odds-box">
-                    <p class="turt-name"></p>
-                    <p class="odds" id="lane-2-odds"></p>
-                    <input class="bet" type="number" min="1" onkeydown="return event.keyCode !== 190"
-                        onPaste="return false">
-                </div>
-
-                <!-- Starting position -->
-                <div class="placer start-position" id="start-position-2"></div>
-
-                <!-- Finishing positions -->
-                <div>
-                    <div class="placer 1st-position" id="lane-2-position-4"></div>
-                    <div class="placer 2nd-position" id="lane-2-position-3"></div>
-                    <div class="placer 3rd-position" id="lane-2-position-2"></div>
-                    <div class="placer 4th-position" id="lane-2-position-1"></div>
-                </div>
-            </div>
-
-            <!-- Racetrack #3 -->
-            <div class="col-3 race-track" id="race-track-3">
-
-                <!-- Odds indicator & input field -->
-                <div class="odds-box">
-                    <p class="turt-name"></p>
-                    <p class="odds" id="lane-3-odds"></p>
-                    <input class="bet" type="number" min="1" onkeydown="return event.keyCode !== 190"
-                        onPaste="return false">
-                </div>
-
-                <!-- Starting position -->
-                <div class="placer start-position" id="start-position-3"></div>
-
-                <!-- Finishing positions -->
-                <div>
-                    <div class="placer 1st-position" id="lane-3-position-4"></div>
-                    <div class="placer 2nd-position" id="lane-3-position-3"></div>
-                    <div class="placer 3rd-position" id="lane-3-position-2"></div>
-                    <div class="placer 4th-position" id="lane-3-position-1"></div>
-                </div>
-            </div>
-
-            <!-- Racetrack #4 -->
-            <div class="col-3 race-track" id="race-track-4">
-
-                <!-- Odds indicator & input field -->
-                <div class="odds-box">
-                    <p class="turt-name"></p>
-                    <p class="odds" id="lane-4-odds"></p>
-                    <input class="bet" type="number" min="1" onkeydown="return event.keyCode !== 190"
-                        onPaste="return false">
-                </div>
-
-                <!-- Starting position -->
-                <div class="placer start-position" id="start-position-4"></div>
-
-                <!-- Finishing positions -->
-                <div>
-                    <div class="placer 1st-position" id="lane-4-position-4"></div>
-                    <div class="placer 2nd-position" id="lane-4-position-3"></div>
-                    <div class="placer 3rd-position" id="lane-4-position-2"></div>
-                    <div class="placer 4th-position" id="lane-4-position-1"></div>
-                </div>
-            </div>
-
-        </div>
-    </section>
-    <!-- race section ends -->
-
-    <!-- Tokens Section -->
-    <section class="container tokens-container">
-        <div class="row">
-            <!-- Tokens -->
-            <div class="col-4" id="tokens-wrapper">
-                <p> Tokens <span id="tokens">100</span></p>
-            </div>
-            <!-- tokens ends -->
-
-            <!-- Race Buttons -->
-            <div class="col-4" id="race-buttons">
-                <button id="start-race-button">Start Race</button>
-                <button style="display:none" id="next-race-button">Next Race</button>
-            </div>
-            <!-- race buttons end -->
-
-            <!-- Progress -->
-            <div class="col-4">
-                <div id="progress-wrapper">
-                    <div id="progress-outer">
-                        <div id="progress-inner"></div>
+                    <!-- Finishing positions -->
+                    <div>
+                        <div class="placer 1st-position" id="lane-1-position-4"></div>
+                        <div class="placer 2nd-position" id="lane-1-position-3"></div>
+                        <div class="placer 3rd-position" id="lane-1-position-2"></div>
+                        <div class="placer 4th-position" id="lane-1-position-1"></div>
                     </div>
                 </div>
-                <p><span id="tokens-dup">100</span> / 1000 in <span id="counter">0</span><span id="races">
-                        Races</span></p>
-            </div>
-            <!-- progress ends -->
-        </div>
-    </section>
-    <!-- tokens section ends -->
 
-    <!-- Results Section -->
-    <section class="container results-container">
-        <div class="row">
-            <div class="col-12 text-center" id="results">
+                <!-- Racetrack #2 -->
+                <div class="col-3 race-track" id="race-track-2">
+
+                    <!-- Odds indicator & input field -->
+                    <div class="odds-box">
+                        <p class="turt-name"></p>
+                        <p class="odds" id="lane-2-odds"></p>
+                        <input class="bet" type="number" min="1" onkeydown="return event.keyCode !== 190"
+                            onPaste="return false" aria-label="Place bet on turtle 2 here">
+                    </div>
+
+                    <!-- Starting position -->
+                    <div class="placer start-position" id="start-position-2"></div>
+
+                    <!-- Finishing positions -->
+                    <div>
+                        <div class="placer 1st-position" id="lane-2-position-4"></div>
+                        <div class="placer 2nd-position" id="lane-2-position-3"></div>
+                        <div class="placer 3rd-position" id="lane-2-position-2"></div>
+                        <div class="placer 4th-position" id="lane-2-position-1"></div>
+                    </div>
+                </div>
+
+                <!-- Racetrack #3 -->
+                <div class="col-3 race-track" id="race-track-3">
+
+                    <!-- Odds indicator & input field -->
+                    <div class="odds-box">
+                        <p class="turt-name"></p>
+                        <p class="odds" id="lane-3-odds"></p>
+                        <input class="bet" type="number" min="1" onkeydown="return event.keyCode !== 190"
+                            onPaste="return false" aria-label="Place bet on turtle 3 here">
+                    </div>
+
+                    <!-- Starting position -->
+                    <div class="placer start-position" id="start-position-3"></div>
+
+                    <!-- Finishing positions -->
+                    <div>
+                        <div class="placer 1st-position" id="lane-3-position-4"></div>
+                        <div class="placer 2nd-position" id="lane-3-position-3"></div>
+                        <div class="placer 3rd-position" id="lane-3-position-2"></div>
+                        <div class="placer 4th-position" id="lane-3-position-1"></div>
+                    </div>
+                </div>
+
+                <!-- Racetrack #4 -->
+                <div class="col-3 race-track" id="race-track-4">
+
+                    <!-- Odds indicator & input field -->
+                    <div class="odds-box">
+                        <p class="turt-name"></p>
+                        <p class="odds" id="lane-4-odds"></p>
+                        <input class="bet" type="number" min="1" onkeydown="return event.keyCode !== 190"
+                            onPaste="return false" aria-label="Place bet on turtle 4 here">
+                    </div>
+
+                    <!-- Starting position -->
+                    <div class="placer start-position" id="start-position-4"></div>
+
+                    <!-- Finishing positions -->
+                    <div>
+                        <div class="placer 1st-position" id="lane-4-position-4"></div>
+                        <div class="placer 2nd-position" id="lane-4-position-3"></div>
+                        <div class="placer 3rd-position" id="lane-4-position-2"></div>
+                        <div class="placer 4th-position" id="lane-4-position-1"></div>
+                    </div>
+                </div>
+
             </div>
-        </div>
-    </section>
-    <!-- results section ends -->
+        </section>
+        <!-- race section ends -->
+
+        <!-- Tokens Section -->
+        <section class="container tokens-container">
+            <div class="row">
+                <!-- Tokens -->
+                <div class="col-4" id="tokens-wrapper">
+                    <p> Tokens <span id="tokens">100</span></p>
+                </div>
+                <!-- tokens ends -->
+
+                <!-- Race Buttons -->
+                <div class="col-4" id="race-buttons">
+                    <button id="start-race-button">Start Race</button>
+                    <button style="display:none" id="next-race-button">Next Race</button>
+                </div>
+                <!-- race buttons end -->
+
+                <!-- Progress -->
+                <div class="col-4">
+                    <div id="progress-wrapper">
+                        <div id="progress-outer">
+                            <div id="progress-inner"></div>
+                        </div>
+                    </div>
+                    <p><span id="tokens-dup">100</span> / 1000 in <span id="counter">0</span><span id="races">
+                            Races</span></p>
+                </div>
+                <!-- progress ends -->
+            </div>
+        </section>
+        <!-- tokens section ends -->
+
+        <!-- Results Section -->
+        <section class="container results-container">
+            <div class="row">
+                <div class="col-12 text-center" id="results">
+                </div>
+            </div>
+        </section>
+        <!-- results section ends -->
+    </main>
+    <!-- game ends -->
 
     <!-- Footer -->
     <footer>
@@ -217,13 +221,13 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="game-modal-title"></h5>
+                    <h5 class="modal-title" id="game-modal-title">Result title here</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <h4 class="text-muted" id="game-modal-body"></h4>
+                    <h4 class="text-muted" id="game-modal-body">Result info here</h4>
                     <div class="modal-footer">
                         <button id="restart" type="button" class="btn btn-secondary" data-dismiss="modal">Restart
                             Game</button>
@@ -245,7 +249,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js"
         integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2" crossorigin="anonymous">
     </script>
-    
+
     <!-- External script -->
     <script src="assets/js/main.js"></script>
 

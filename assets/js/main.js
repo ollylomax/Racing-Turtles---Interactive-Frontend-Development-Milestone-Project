@@ -11,14 +11,14 @@ const turtles = [{
         position: "",
         odds: "",
         racetrack: "lane-1",
-        img: "assets/images/turtle-1.png"
+        img: "assets/images/turtle-1.png alt=Turtle icon in lane 1"
     },
     {
         name: "",
         position: "",
         odds: "",
         racetrack: "lane-2",
-        img: "assets/images/turtle-2.png"
+        img: "assets/images/turtle-2.png alt=Turtle icon in lane 2"
 
     },
     {
@@ -26,7 +26,7 @@ const turtles = [{
         position: "",
         odds: "",
         racetrack: "lane-3",
-        img: "assets/images/turtle-3.png"
+        img: "assets/images/turtle-3.png alt=Turtle icon in lane 3"
 
     },
     {
@@ -34,7 +34,7 @@ const turtles = [{
         position: "",
         odds: "",
         racetrack: "lane-4",
-        img: "assets/images/turtle-4.png"
+        img: "assets/images/turtle-4.png alt=Turtle icon in lane 4"
 
     },
 ]
@@ -54,7 +54,7 @@ function clearTrack() {
 
     // Loop through turtles object and insert turtle icons to start positions
     for (let i = 0; i < startPos.length; i++) {
-        startPos[i].insertAdjacentHTML('beforeend', `<img src=${turtles[i].img} alt=Turtle icon>`);
+        startPos[i].insertAdjacentHTML('beforeend', `<img src=${turtles[i].img}>`);
     }
     // Loop to reset bet boxes
     for (i = 0; i < bets.length; i++) {
@@ -69,7 +69,7 @@ function clearTrack() {
         <li>Decide which Turtle you want to bet tokens on</li>
         <li>Place the token amount in the corresponding box</li>
         <li>Click on Start Race to see which Turtle wins</li>
-        <li>Keep on betting until you reack 1000 Tokens!</li>
+        <li>Keep on betting until you reach 1000 Tokens!</li>
     </ul>
     `);
 
@@ -174,10 +174,10 @@ function startRace() {
     $('#start-position-4').empty();
 
     // Append turtle positions to html
-    $(`#lane-1-position-${turtles[0].position}`).append(`<img src="assets/images/turtle-1.png">`);
-    $(`#lane-2-position-${turtles[1].position}`).append(`<img src="assets/images/turtle-2.png">`);
-    $(`#lane-3-position-${turtles[2].position}`).append(`<img src="assets/images/turtle-3.png">`);
-    $(`#lane-4-position-${turtles[3].position}`).append(`<img src="assets/images/turtle-4.png">`);
+    $(`#lane-1-position-${turtles[0].position}`).append(`<img src=${turtles[0].img}>`);
+    $(`#lane-2-position-${turtles[1].position}`).append(`<img src=${turtles[1].img}>`);
+    $(`#lane-3-position-${turtles[2].position}`).append(`<img src=${turtles[2].img}>`);
+    $(`#lane-4-position-${turtles[3].position}`).append(`<img src=${turtles[3].img}>`);
 
     // Replace start race button with next race button
     document.getElementById("start-race-button").style.display = 'none';
@@ -426,7 +426,7 @@ function shuffle(array) {
 
 shuffle(turtPorts);
 for (let i = 0; i < portPos.length; i++) {
-    portPos[i].insertAdjacentHTML('afterbegin', `<img src=${turtPorts[i]} alt="Turtle portrait">`);
+    portPos[i].insertAdjacentHTML('afterbegin', `<img src=${turtPorts[i]}>`);
 }
 
 let namesArr = ['Toby', 'Tamsin', 'Tabatha', 'Thaddius', 'Thelma', 'Tim', 'Thelvin',

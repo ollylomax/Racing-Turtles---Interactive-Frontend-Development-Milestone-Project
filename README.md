@@ -386,55 +386,55 @@ after a race has finished.
 
 - I ran the website locally and tested on the deployed version. No differences found.
 
-- ## Test Strategy
-The testing will be predominantly performed on the functionality of the game, in addition to the aesthetics and layout of the page.
+## Test Strategy
+ - The testing will be predominantly performed on the functionality of the game, in addition to the aesthetics and layout of the page.
 
-- This will be done on four web browsers:-
-  - Chrome
-  - Firefox
-  - Safari
-  - Brave
+    This will be done on four web browsers:-
+    - Chrome
+    - Firefox
+    - Safari
+    - Brave
 
- - And on every common breakpoint (Mobile, Tablet, Desktop, XL Desktop).
+    And on every common breakpoint (Mobile, Tablet, Desktop, XL Desktop).
 
- Validation of feature inclusion will be undertaken from the wireframes scoped during the Skeleton stage of UX design.
+ - Validation of feature inclusion will be undertaken from the wireframes scoped during the Skeleton stage of UX design.
  
- Elements should not overlap other container divs and should remain on the screen at all sizes above and including 300px.
+ - Elements should not overlap other container divs and should remain on the screen at all sizes above and including 300px.
 
- Validation of bet inputs and token distribution will be undertaken thoroughly to ensure the calculations are working perfectly.
+ - Validation of bet inputs and token distribution will be undertaken thoroughly to ensure the calculations are working perfectly.
 
- My GitHub repositry link should open in a new browser window.
+ - My GitHub repositry link should open in a new browser window.
 
 The live project is deployed [here](https://ollylomax.github.io/Racing-Turtles---Interactive-Frontend-Development-Milestone-Project/index.html).
 
 
-- ## Testing
+## User Story Testing
 
-- As a user, I want to easily understand the purpose of the site.
+> As a user, I want to easily understand the purpose of the site.
 
 Open website, purpose of game displayed in subheading. Instructions displayed in results box next to start game button.
 
-- As a user, I want to clearly view the website and content on any device.
+> As a user, I want to clearly view the website and content on any device.
 
 Open website on all viewport sizes and test whether content overlaps all the way down to 300px.
 
-- As a user, I want to clearly view the website and content on any browser.
+> As a user, I want to clearly view the website and content on any browser.
 
 Open website on Google Chrome, Mozilla Firefox and Safari and check for consistency between browsers.
 
-- As a user, I want to be able to understand how the game works with clear instructions.
+> As a user, I want to be able to understand how the game works with clear instructions.
 
 Open website, purpose of game displayed in subheading. Instructions displayed in results box next to start game button.
 
-- As a user, I want to see the odds clearly displayed for each turtle.
+> As a user, I want to see the odds clearly displayed for each turtle.
 
 Open website, odds displayed in correct format underneath each turtle portrait.
 
-- As a user, I want to choose the turtle I want to bet on based on odds, name and portrait.
+> As a user, I want to choose the turtle I want to bet on based on odds, name and portrait.
 
 Open website, turtle pictures and turtle names shown above corresponding race lane.
 
-- As a user, I want to be able to easily bet on my chosen turtle.
+> As a user, I want to be able to easily bet on my chosen turtle.
 
 Open website, click on random input box and input a number of tokens within total tokens value
 
@@ -444,35 +444,35 @@ Open website, click on random input box and input 0
 
 Open website, click on random input box and try to input a negative value with ‘-‘.
 
-- As a user, I want to be warned if I forgot to input a bid before starting the race.
+> As a user, I want to be warned if I forgot to input a bid before starting the race.
 
 Open website, click on ‘Start Race’ button
 
 Open website, click on random input box and press ‘Enter’ on keyboard.
 
-- As a user, I want to be able to see how many tokens I have remaining.
+> As a user, I want to be able to see how many tokens I have remaining.
 
 Open website, tokens clearly displayed beneath the game window.
 
-- As a user, I want to be able to quickly and easily start the race.
+> As a user, I want to be able to quickly and easily start the race.
 
 Open website, click on random input box and input number not exceeding total tokens value. Click on ‘Start Race’ button.
 
-As a user, I want to be able to clearly see where the turtles have finished in each race.
+> As a user, I want to be able to clearly see where the turtles have finished in each race.
 
-As a user, I want to see my tokens update after each race.
+> As a user, I want to see my tokens update after each race.
 
-As a user, I want to be able to see if I win my bet, and how many tokens I won.
+> As a user, I want to be able to see if I win my bet, and how many tokens I won.
 
-As a user, I want to be able to see if I lose my bet, and how many tokens I lost.
+> As a user, I want to be able to see if I lose my bet, and how many tokens I lost.
 
-As a user, I want to be able to visually see how many tokens I need to win the game.
+> As a user, I want to be able to visually see how many tokens I need to win the game.
 
-As a user, I want to be able to quickly and easily move on to the next race.
+> As a user, I want to be able to quickly and easily move on to the next race.
 
-As a user, I want to be alerted when I win or lose the game.
+> As a user, I want to be alerted when I win or lose the game.
 
-As a user, I want to be able to quickly start a new game.
+> As a user, I want to be able to quickly start a new game.
 
 ## Deployment
 

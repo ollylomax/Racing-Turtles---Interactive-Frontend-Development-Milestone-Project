@@ -1,9 +1,9 @@
 <h1 align="center">Interactive-Frontend-Development-Milestone-Project/ (Milestone Project #2)</h1>
 <h1 align="center">Olly Lomax</h1>
 
-<h2 align="center"><img src="docs/readmepics/logo-header.png"></h2>
+<h2 align="center"><img src="docs/readmeimages/racing-turtles-header.png"></h2>
 
-![Responsive Visuals](docs/readmepics/responsive.png)
+![Responsive Visuals](docs/readmeimages/responsive.png)
 # Racing Turtles Website
 I made this website using my knowledge of HTML5, CSS3, JavaScript, jQuery and Bootstrap frameworks as well as UX Design which I have learned from Code Institute during my Diploma in Full Stack Software Development. I made this interactive game with the intention of completing my Interactive Frontend Development Milestone Project. From scope to testing has taken me just under 10 days.
 
@@ -259,6 +259,10 @@ after a race has finished.
 
 - ### Colour Scheme
 
+    ![Green #00d487](docs/readmeimages/00d487.png)
+    ![black](docs/readmeimages/black.png)
+    ![Off-White #FFF](docs/readmeimages/fff.png)
+
 I used three main colours for the website. A cyan for the main theme, as well as black and white for contrast. I felt like they complimented each other well, related well to the turtle theme and provided the necessary contrast to use exclusively throughout the design process.
 
 - ### Typography
@@ -310,6 +314,7 @@ Prospective
 Animate the turtles down their lanes, setting varying interval steps for each turtle.
 The project is future scoped for the easy addition of more lanes and more turtles.
 Change Win/Loss scenario from reaching a set number of tokens, to playing against the ‘computer’ with randomised choices.
+Allow users to upload their own pet names and images to race with
 
 
 Testing

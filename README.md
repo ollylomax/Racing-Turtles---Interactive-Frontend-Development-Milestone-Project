@@ -474,3 +474,63 @@ As a user, I want to be alerted when I win or lose the game.
 
 As a user, I want to be able to quickly start a new game.
 
+## Deployment
+
+ - ### Project Creation
+    I created this project by first installing the Gitpod [plugin](https://www.gitpod.io/). I then navigated to the Code Institute [gitpod-full-template](https://github.com/Code-Institute-Org/gitpod-full-template) and clicked on the "Use this Template" button. I chose and input my project name (Racing-Turtles---Interactive-Frontend-Development-Milestone-Project) then created my repositry from the template by clicking the button. After that I simply clicked on the "Gitpod" button from my repositry page to open up my IDE and begin coding.
+
+The following commands were used throughout the development process:
+
+- **git status**<br>
+ Used to show my untracked and staged files.
+- **git add**<br>
+ Used to add files to the staging area before commiting.
+- **git commit -m**<br>
+ Used to commit the changes to my local repository.
+- **git push**<br>
+ Used to push all commited changes to the GitHub repository.
+- **git log**<br>
+ Used to show a list of my previous commits.
+- **git reset --hard**<br>
+ Used with applicable checksum to revert to a previous commit.
+
+ - ### GitHub Pages
+   To host the website I used GitHub Pages. This was done using the following process:
+
+    - Navigate to my [GitHub Repository](https://github.com/ollylomax/Racing-Turtles---Interactive-Frontend-Development-Milestone-Project)
+    - Click on the 'Settings' Tab.
+    - Scroll Down to and click on the 'Pages' heading on the left side of the page.
+    - Select 'Master Branch' as the source.
+    - Click the 'Save' button.
+    - Click on the [link](https://ollylomax.github.io/Racing-Turtles---Interactive-Frontend-Development-Milestone-Project/index.html) to go to the live deployed page.
+
+ - ### Run Locally
+   In order to run a local version of the website I used the following steps:
+
+   - Navigate to my [GitHub Repository](https://github.com/ollylomax/Racing-Turtles---Interactive-Frontend-Development-Milestone-Project)
+    - Click the 'Code' button for a drop down menu.
+    - Download and unpack the ZIP file then and open with the IDE you prefer.
+    #### OR
+    - Navigate to my [GitHub Repository](https://github.com/ollylomax/Racing-Turtles---Interactive-Frontend-Development-Milestone-Project)
+    - Click the 'Code' button for a drop down menu.- Copy Git URL from the HTTPS dialogue box.
+    - Open the IDE you prefer then open a terminal window in a directory of your choice.
+    - Use the **git clone** command in the terminal followed by the copied git URL.
+    - A clone of the project will be created locally on your machine.
+
+## Credits
+ - ### Code
+
+   Bootstrap 5.1.3 was used throughout the project to assist in making site responsive using the Bootstrap Grid System.
+
+   jQuery library was used throughout the project to make document traversal and manipulation easier as well as to make code less verbose.
+
+ - ### Content
+   All content on this site was created by Olly Lomax.
+
+ - ### Media
+
+   All images on this site were sourced from free stock images on [Shutterstock](https://www.shutterstock.com) free trial and [Unsplash](https://unsplash.com/).
+
+ - ### Acknowledgements
+
+    Many thanks to my Code Institute Mentor Daisy McGirr for her insight and advice during development.

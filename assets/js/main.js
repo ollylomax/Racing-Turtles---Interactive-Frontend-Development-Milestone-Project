@@ -12,7 +12,6 @@ const turtles = [{
         odds: "",
         racetrack: "lane-1",
         img: "assets/images/turtle-1.png alt='Turtle icon in lane 1'",
-        ident: ""
     },
     {
         name: "",
@@ -62,11 +61,12 @@ let namesArr = ['Toby', 'Tamsin', 'Tabatha', 'Thaddius', 'Thelma', 'Tim', 'Thelv
 ];
 
 /** FUNCTION #1
- * Clear all turtles from race track if any exist
- * then assign turtles to start positions
+ * Clear bets, results, turtle portraits and all turtle icons
+ * from race track if any exist then assign turtles to
+ * start positions
  */
 function clearTrack() {
-    // Empty all turtles
+    // Empty all turtle icons from placer class divs
     var allTurts = $('.placer');
     for (let i = 0; i < allTurts.length; i++) {
         allTurts.empty();
@@ -94,6 +94,7 @@ function clearTrack() {
 
     // Clear results div
     $('#results').empty();
+    // Append game instructions to results div
     $('#results').append(`
     <ul>
         <li>Decide which Turtle you want to bet tokens on</li>
@@ -112,7 +113,7 @@ function clearTrack() {
 }
 
 /** FUNCTION #2
- * Function to randomise the positions of any
+ * Function to randomise the positions of an
  * array passed in as an argument
  */
  function shuffle(array) {
@@ -139,6 +140,7 @@ function createTurts() {
     }
 
     shuffle(namesArr); // Call shuffle function on names array
+
     // Loop through turtles object and set turtle names from the shuffled array
     turtles.forEach((turtle, index) => {
         var name = namesArr[index];
@@ -172,7 +174,7 @@ function setOdds() {
             upperRandom = Math.floor((Math.random() * 20) + 1);
             lowerRandom = Math.floor((Math.random() * 3) + 1);
         } else {
-            // Push the odds to empty array
+            // Push the odds as objects into the empty oddsArr array
             oddsArr.push({
                 upper: upperRandom,
                 lower: lowerRandom,
@@ -197,14 +199,15 @@ function setOdds() {
 }
 
 /** FUNCTION #5
- * Set turtle weights from the odds generated
- * and from weights set finishing positions
+ * Calculate turtle weights from the odds generated
+ * in the above function and from them, set the turtle
+ * icon finishing positions
  */
 function setPositions() {
     // Define an empty array to insert weighted odds
     let weightsArr = [];
 
-    // Loop through turtles to declare odds weights
+    // Loop through turtles to calculate odds weights
     for (let i in turtles) {
         if (turtles.hasOwnProperty(i)) {
             let weights = Math.floor((100 / turtles[i].odds.upper) * turtles[i].odds.lower);
@@ -227,11 +230,13 @@ function setPositions() {
     while (finalPositions < 5) {
         // Loop to set final positions of turtles by taking first turtle from weights array
         for (let i in turtles) {
+            // Conditional statement to determine turtle positions sequence
             if (weightsArr[0] === turtles[i].name) {
                 // Assign turtle position
                 turtles[i].position = finalPositions;
-                // Filter turtle from the weights array
+                // Filter the assigned turtle from the weights array
                 weightsArr = weightsArr.filter(each => each != weightsArr[0]);
+                // Repeat for next turtle
                 finalPositions++;
             }
         }
@@ -239,8 +244,9 @@ function setPositions() {
 }
 
 /** FUNCTION #6
- * Empty the turtle start positions and append turtles 
- * to their final positions set from previous function
+ * Disable bet inputs and empty the turtle start positions
+ * then append turtle icons to their final positions determined
+ * by the previous function
  */
 function startRace() {
     // Empty start positions
@@ -249,7 +255,7 @@ function startRace() {
     $('#start-position-3').empty();
     $('#start-position-4').empty();
 
-    // Append turtle positions to html
+    // Append turtle icon positions to html
     $(`#lane-1-position-${turtles[0].position}`).append(`<img src=${turtles[0].img}>`);
     $(`#lane-2-position-${turtles[1].position}`).append(`<img src=${turtles[1].img}>`);
     $(`#lane-3-position-${turtles[2].position}`).append(`<img src=${turtles[2].img}>`);
@@ -259,7 +265,6 @@ function startRace() {
     document.getElementById("start-race-button").style.display = 'none';
     document.getElementById("next-race-button").style.display = '';
 
-
     // Loop to disable all bet inputs
     for (let i = 0; i < $(".bet").length; i++) {
         $(".bet")[i].disabled = true;
@@ -268,7 +273,7 @@ function startRace() {
 
 /** FUNCTION #7
  * Restrict betting to one input box and prevent
- * certain numbers from being entered
+ * certain values from being entered
  */
 function betRestrict() {
     // Ternary conditional to restrict numbers above user's total tokens
@@ -335,7 +340,7 @@ function showResults() {
         // Conditional statement to find winner and insert relevant template literal
         if (bets.value && turtle.position == 1) {
 
-            // Update tokens span
+            // Update tokens span with winnings
             $('#tokens')[0].innerHTML = parseInt($('#tokens')[0].innerHTML) + parseInt(betWinnings);
             // Update variable for progress bar width
             progressWidth = progressWidth + (betWinnings / 10);
@@ -353,7 +358,7 @@ function showResults() {
             `);
             // Conditional statement to find losers and insert relevant template literal
         } else if (bets.value && turtle.position !== 1) {
-            // Update tokens span
+            // Update tokens span with tokens lost
             $('#tokens')[0].innerHTML = parseInt($('#tokens')[0].innerHTML) - parseInt(betVal);
             // Update variable for progress bar width
             progressWidth = progressWidth - (betVal / 10);
@@ -369,10 +374,11 @@ function showResults() {
             <p>Your tokens went down by ${betVal}</p>
             `);
         }
+
         // Update progress tokens span
         $('#tokens-dup')[0].innerHTML = $('#tokens')[0].innerHTML;
 
-        // Conditional statement for grammar
+        // Conditional statement for grammar correction (Race/s plural)
         if ($('#counter')[0].innerHTML == 1) {
             $('#races')[0].innerHTML = ' Race';
         } else {
@@ -388,10 +394,12 @@ function showResults() {
 function checkWinLose() {
     // Conditional logic to show Win and Lose game modals
     if ($('#tokens')[0].innerHTML >= 1000) {
+        // Show winning modal dialog
         $('#myModal').modal('show');
         $('#game-modal-title')[0].innerHTML = "Reached 1000+ Tokens!";
         $('#game-modal-body')[0].innerHTML = "YOU WON THE GAME!!!";
     } else if ($('#tokens')[0].innerHTML < 1) {
+        // Show losing modal dialog
         $('#myModal').modal('show');
         $('#game-modal-title')[0].innerHTML = "You ran out of Tokens :(";
         $('#game-modal-body')[0].innerHTML = "Restart the game and try again!";
@@ -399,7 +407,7 @@ function checkWinLose() {
 }
 
 /** FUNCTION #10
- * Initiate game with conditional input
+ * Initiate game after conditional input
  * check in bet boxes with alert
  */
 function triggerGame() {
@@ -410,30 +418,23 @@ function triggerGame() {
             (bets[3].value.length < 1))) {
         alert('YOU MUST PLACE A BET BEFORE THE RACE CAN START!');
     } else {
-        // Increment race counter
-        $('#counter')[0].innerHTML++;
-        // Call set positions function
-        setPositions();
-        // Call start race function
-        startRace();
-        // Call show results function
-        showResults();
-        // Call check win/lose function
-        checkWinLose();
+        // Initiate game
+        $('#counter')[0].innerHTML++; // Increment race counter
+        setPositions(); // Call set positions function
+        startRace(); // Call start race function
+        showResults(); // Call show results function
+        checkWinLose(); // Call check win/lose function
     }
 }
 
 // Add event listener for page load
 document.addEventListener('DOMContentLoaded', function () {
 
-    // Call clear track function
-    clearTrack();
+    clearTrack(); // Call clear track function
 
-    // Call create turtles function
-    createTurts();
+    createTurts(); // Call create turtles function
 
-    // Call function to update turtle odds to turtle object
-    setOdds();
+    setOdds(); // Call set odds function
 
 });
 
@@ -454,14 +455,11 @@ for (let i = 0; i < document.getElementsByClassName("bet").length; i++) {
 // Event listener for click next race button
 document.getElementById("next-race-button").addEventListener("click", function () {
 
-    // Call clear track function
-    clearTrack();
+    clearTrack(); // Call clear track function
 
-    // Call create turtles function
-    createTurts();
+    createTurts(); // Call create turtles function
 
-    // Call function to update turtle odds to turtle object
-    setOdds();
+    setOdds(); // Call set odds function
 
 });
 
@@ -470,30 +468,29 @@ for (let i = 0; i < bets.length; i++) {
     bets[i].addEventListener('input', betRestrict); // Call bet restrictions function on input
 }
 
-// // Event listener for restart button on modal
+// Event listener for restart button on modal
 document.getElementById("restart").addEventListener("click", function () {
+    // Close modal on restart button click
     $('#myModal').modal('hide');
 });
 
-// Reset tokens and counter with close modal event handler
+// Close modal event handler to reset game
 $('#myModal').on('hide.bs.modal', function () {
-    // Call clear track function
-    clearTrack();
 
-    // Call create turtles function
-    createTurts();
+    clearTrack(); // Call clear track function
+
+    createTurts(); // Call create turtles function
 
     // Reset tokens
     $('#tokens')[0].innerHTML = 100;
     $('#tokens-dup')[0].innerHTML = $('#tokens')[0].innerHTML;
 
-    // Rest counter
+    // Reset counter
     $('#counter')[0].innerHTML = 0;
 
     // Reset progress bar
     progressWidth = 10;
     progress.style.width = progressWidth + '%';
 
-    // Call set odds function
-    setOdds();
+    setOdds(); // Call set odds function
 });

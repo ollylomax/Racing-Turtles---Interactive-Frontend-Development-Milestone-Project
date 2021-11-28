@@ -110,6 +110,7 @@ header {
 }
 
 #tokens-wrapper {
+    font-size: 0.9em;
     padding-top: 6px;
     padding-right: 0;
 }
@@ -117,7 +118,7 @@ header {
 #tokens {
     font-weight: 600;
     border: 1px solid black;
-    padding: 10px;
+    padding: 5px 4px;
 }
 
 
@@ -137,8 +138,9 @@ header {
 }
 
 #results {
-    max-width:450px;
+    max-width: 450px;
     margin: 0 auto;
+    font-size: 0.9em;
 }
 
 .shake {
@@ -208,10 +210,8 @@ header {
 }
 
 #race-buttons button {
+    padding: 3px 6px;
     text-align: center;
-}
-
-#race-buttons button {
     background: rgb(0, 212, 135);
     color: black;
     border: 1px solid #133510;
@@ -275,4 +275,26 @@ footer {
     color: #fff;
     background: rgb(0, 212, 135);
     border: 1px solid black;
+}
+
+@media(min-width: 360px) {
+
+    #race-buttons button {
+        padding: 6px 12px;;
+    }
+    
+    #tokens-wrapper {
+        font-size: 1em;
+    }
+
+    #tokens {
+        padding: 10px;
+    }
+
+}
+
+@media(min-width: 576px) {
+    #results {
+        font-size: 1em;
+    }
 }

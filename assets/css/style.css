@@ -128,7 +128,12 @@ header {
     color: white;
     padding-top: 15px;
     max-width: 800px;
-    min-height: 100px;
+    min-height: 175px;
+}
+
+.results-container ul {
+    list-style-type: none;
+    padding-left: 0;
 }
 
 #results {
@@ -243,4 +248,31 @@ header {
 footer {
     margin-top: 30px;
     margin-bottom: 30px;
+}
+
+/* ------------------------------------------------Modal */
+
+.modal-dialog {
+    background: rgb(0, 212, 135);
+    border-radius: 20px;
+    padding: 30px 20px;
+    text-align: center;
+    border: 2px solid #133510;
+}
+
+.modal-body h4 {
+    padding-bottom: 20px;
+}
+
+.modal-content .btn {
+    margin: 10px 5px;
+    color: black;
+    background: #fff;
+    border: 1px solid black;
+}
+
+.modal-content .btn:hover {
+    color: #fff;
+    background: rgb(0, 212, 135);
+    border: 1px solid black;
 }

@@ -11,7 +11,7 @@ const turtles = [{
         position: "",
         odds: "",
         racetrack: "lane-1",
-        img: "assets/images/turtle-1.png alt=Turtle icon in lane 1",
+        img: "assets/images/turtle-1.png alt='Turtle icon in lane 1'",
         ident: ""
     },
     {
@@ -19,7 +19,7 @@ const turtles = [{
         position: "",
         odds: "",
         racetrack: "lane-2",
-        img: "assets/images/turtle-2.png alt=Turtle icon in lane 2"
+        img: "assets/images/turtle-2.png alt='Turtle icon in lane 2'"
 
     },
     {
@@ -27,7 +27,7 @@ const turtles = [{
         position: "",
         odds: "",
         racetrack: "lane-3",
-        img: "assets/images/turtle-3.png alt=Turtle icon in lane 3"
+        img: "assets/images/turtle-3.png alt='Turtle icon in lane 3'"
 
     },
     {
@@ -35,7 +35,7 @@ const turtles = [{
         position: "",
         odds: "",
         racetrack: "lane-4",
-        img: "assets/images/turtle-4.png alt=Turtle icon in lane 4"
+        img: "assets/images/turtle-4.png alt='Turtle icon in lane 4'"
 
     },
 ];
@@ -43,14 +43,16 @@ const turtles = [{
 // Save url for turtle portraits directory in variable
 let portrait = 'assets/images/turtle-portraits/turt-port-';
 // Create turtle portraits array
-let turtPorts = [`${portrait}1.png`, `${portrait}2.png`, `${portrait}3.png`, `${portrait}4.png`,
-    `${portrait}1.png`, `${portrait}2.png`, `${portrait}3.png`, `${portrait}4.png`,
-    `${portrait}5.png`, `${portrait}6.png`, `${portrait}7.png`, `${portrait}8.png`,
-    `${portrait}9.png`, `${portrait}10.png`, `${portrait}11.png`, `${portrait}12.png`,
-    `${portrait}13.png`, `${portrait}14.png`, `${portrait}15.png`, `${portrait}16.png`,
-    `${portrait}17.png`, `${portrait}18.png`, `${portrait}19.png`, `${portrait}20.png`,
-    `${portrait}21.png`, `${portrait}22.png`, `${portrait}23.png`, `${portrait}24.png`,
-    `${portrait}25.png`, `${portrait}26.png`, `${portrait}27.png`, `${portrait}28.png`,
+let turtPorts = [`${portrait}1.png alt='portrait1'`,
+    `${portrait}2.png alt='portrait2'`, `${portrait}3.png alt='portrait3'`, `${portrait}4.png alt='portrait4'`,
+    `${portrait}5.png alt='portrait5'`, `${portrait}6.png alt='portrait6'`, `${portrait}7.png alt='portrait7'`,
+    `${portrait}8.png alt='portrait8'`, `${portrait}9.png alt='portrait9'`, `${portrait}10.png alt='portrait10'`,
+    `${portrait}11.png alt='portrait11'`, `${portrait}12.png alt='portrait12'`, `${portrait}13.png alt='portrait13'`,
+    `${portrait}14.png alt='portrait14'`, `${portrait}15.png alt='portrait15'`, `${portrait}16.png alt='portrait16'`,
+    `${portrait}17.png alt='portrait17'`, `${portrait}18.png alt='portrait18'`, `${portrait}19.png alt='portrait19'`,
+    `${portrait}20.png alt='portrait20'`, `${portrait}21.png alt='portrait21'`, `${portrait}22.png alt='portrait22'`,
+    `${portrait}23.png alt='portrait23'`, `${portrait}24.png alt='portrait24'`, `${portrait}25.png alt='portrait25'`,
+    `${portrait}26.png alt='portrait26'`, `${portrait}27.png alt='portrait27'`, `${portrait}28.png alt='portrait28'`,
 ];
 
 // Creates turtle names array

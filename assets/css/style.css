@@ -33,7 +33,7 @@ header {
     margin-bottom: 10px;
     width: 60px;
     height: 60px;
-    border: 1px solid white;
+    border: 1px solid #fff;
     border-radius: 50px;
 }
 
@@ -126,7 +126,7 @@ header {
 
 .results-container {
     background-color: black;
-    color: white;
+    color: #fff;
     padding-top: 15px;
     max-width: 800px;
     min-height: 100px;
@@ -246,8 +246,23 @@ header {
 /* ------------------------------------------------Footer */
 
 footer {
-    margin-top: 30px;
-    margin-bottom: 30px;
+    margin: 15px;
+}
+
+footer a {
+    text-decoration: none;
+    color: black;
+}
+
+footer a:hover {
+    text-decoration: underline;
+    font-weight: 600;
+}
+
+footer a i {
+    font-size: 40px;
+    text-align: center;
+    color: rgb(0, 212, 135);
 }
 
 /* ------------------------------------------------Modal */

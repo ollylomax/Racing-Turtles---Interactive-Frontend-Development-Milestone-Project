@@ -61,7 +61,7 @@ To make a game that users will want to return to the website in order to play ag
 
 
 
-## STRATEGY
+## SCOPE
 
 - ### Planned Features
 

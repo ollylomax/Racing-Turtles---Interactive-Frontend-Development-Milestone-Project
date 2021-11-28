@@ -254,8 +254,7 @@ after a race has finished.
     - Home (mobile)
     ![Home](docs/wireframes/racing-game-mobile.png)
 
-
-## SKELETON
+## SURFACE
 
 - ### Colour Scheme
 
@@ -263,61 +262,153 @@ after a race has finished.
     ![black](docs/readmeimages/black.png)
     ![Off-White #FFF](docs/readmeimages/fff.png)
 
-I used three main colours for the website. A cyan for the main theme, as well as black and white for contrast. I felt like they complimented each other well, related well to the turtle theme and provided the necessary contrast to use exclusively throughout the design process.
+    I used three main colours for the website. A cyan for the main theme, as well as black and white for contrast. I felt like they complimented each other well, related well to the turtle theme and provided the necessary contrast to use exclusively throughout the design process.
 
 - ### Typography
-I used two main fonts for the website, Odibee for the main heading for a gaming feel and Roboto for all content which is well recognised and a standard in web design.
+    I used two main fonts for the website, Odibee for the main heading for a gaming feel and Roboto for all content which is well recognised and a standard in web design.
 
 - ### Imagery
-I sourced the Racing Turtles main logo, the turtle race icons and the race background from licensed images on a Shutterstock free trial which are free for personal and commercial use. The turtle portrait images were taken from Unsplash which is a free resource for stock images. Using my knowledge of Adobe Photoshop and Illustrator, all images have been selected and edited/exported with as much uniformity as possible and downsampled to decrease page load times.
+    I sourced the Racing Turtles main logo, the turtle race icons and the race background from licensed images on a Shutterstock free trial which are free for personal and commercial use. The turtle portrait images were taken from Unsplash which is a free resource for stock images. Using my knowledge of Adobe Photoshop and Illustrator, all images have been selected and edited/exported with as much uniformity as possible and downsampled to decrease page load times.
+
+- ### Notable amendments to Design
+
+    - In contrast to my wireframes, I decided to keep the flow of race tracks in a vertical direction for both desktop and mobile. The reasons for this were twofold:
+        
+        - The heavy css and html changes required would not have been a productive use of time on an already tight schedule.
+        - Upon reflection, I liked the flow of the race track in its current state on desktop and realised changing it would be unnecessary having already showcased my solid understanding of media queries in my previous project.
+        
+    - In contrast to my wireframes, I decided not to include the ‘Email Results’ email input in the desktop site. I had intended to hook this up to an API where the user, upon winning the game, could request a basic email showing how many tokens they won and how many races it took. The reasons for this were twofold:
+
+        - I had already coded a walkthrough project where I hooked up a simple email API and felt that this wasn’t going to showcase any further skills.
+        - I felt that this feature did not have any other purpose other than to show I can hook up a basic email API, and that it did not tie in with the theme of the site.
 
 
+## Features
 
-Notable amendments to Design
+- ### Current
 
-In contrast to my wireframes, I decided to keep the flow of race tracks in a vertical direction for both desktop and mobile. The reasons for this were twofold:
+    - Responsive across all viewports using bootstrap classes.
+    - Page heading and logo
+    - Clear instructions on how to play the game.
+    - Turtle portrait and names
+    - Correctly weighted odds for each turtle
+    - User inputs with restrictions
+    - Start race and Next race buttons.
+    - Turtle icons in start positions in respective lanes.
+    - Turtle icons in finishing positions in respective lanes. (Upon clicking Start Race button)
+    - User tokens and progress towards the winning scenario of 1000 tokens.
+    - Progress bar towards aforementioned winning scenario.
+    - User token shake effect (Upon the gaining or losing of Tokens)
+    - Alert popup teller user to place a bet (If no bets are input)
+    - Textual results informing user about race winner and tokens lost/gained
+    - Modal dialogs telling user they have won/lost (Upon winning/losing scenarios)
+    - Footer - GitHub profile and links to my repos
 
-- The heavy css and html changes required would not have been a productive use of time on an already tight schedule.
-- Upon reflection, I liked the flow of the race track in its current state on desktop and realised changing it would be unnecessary having already showcased my solid understanding of media queries in my previous project.
+- ### Prospective
 
-In contrast to my wireframes, I decided not to include the ‘Email Results’ email input in the desktop site. I had intended to hook this up to an API where the user, upon winning the game, could request a basic email showing how many tokens they won and how many races it took. The reasons for this were twofold:
+    - Animate the turtles down their lanes, setting varying interval steps for each turtle.
+    - The project is future scoped for the easy addition of more lanes and more turtles.
+    - Change Win/Loss scenario from reaching a set number of tokens, to playing against the ‘computer’ with randomised choices.
+    - Allow users to upload their own pet names and images to race with
 
-- I had already coded a walkthrough project where I hooked up a simple email API and felt that this wasn’t going to showcase any further skills.
-- I felt that this feature did not have any other purpose other than to show I can hook up a basic email API, and that it did not tie in with the theme of the site.
+## Technologies Used
+
+-   ### Languages
+    - [HTML5](https://en.wikipedia.org/wiki/HTML5)<br>
+        The language used to display content and provide structure.
+    - [CSS3](https://en.wikipedia.org/wiki/Cascading_Style_Sheets)<br>
+        I used custom styling on top of Bootstrap frameworks.
+    - [JavaScript](https://en.wikipedia.org/wiki/JavaScript)<br>
+        I used heavy custom JavaScript for game functionality with jQuery.
+
+-   ### Frameworks, Libraries & Programs
+    - [Bootstrap v4.6](https://getbootstrap.com/docs/4.6/getting-started/introduction/)<br>
+        Framework used throughout the site to provide baseline styling and import JavaScript/jQuery.
+    - [Google Fonts](https://fonts.google.com/)<br>
+        Used to import the two fonts used throughout the website: Odibee and Roboto.
+    - [Font Awesome](https://fontawesome.com/)<br>
+        Used only for the GitHub icon which I added to the footer.
+    - [jQuery](https://jquery.com/)<br>
+        Used throughout the JavaScript coding of the game.
+    - [Git](https://git-scm.com/)<br>
+        Used for version control to commit and push code via Gitpod to the GitHub repository where the source code is stored.
+    - [Gitpod](https://www.gitpod.io/)<br>
+        This is the IDE (Integrated Development Environment) I used to build the website and commit to Git and push to GitHub
+    - [GitHub](https://github.com/)<br>
+        GitHub is used to store the projects code after being pushed from Git and to host the deployment of the live site via GitHub Pages.
+    - [Adobe Photohop](https://www.adobe.com/uk/products/photoshop.html)<br>
+        Used to convert and resize images before uploading to local repositry.
+    - [Adobe Illustrator](https://www.adobe.com/uk/products/illustrator.html)<br>
+        Used to edit logo and export documents before uploading to local repositry.
+    - [Balsamiq](https://balsamiq.com/)<br>
+        Used during the scoping process to visualise the basic structure of the website and create wireframes during the Skeleton phase of UX Design.
+
+-   ### Resources, Tools & Diagnostics
+    - [Unsplash](https://unsplash.com/)<br>
+        Free stock image database used for turtle portrait imagery.
+    - [Shutterstock](https://www.shutterstock.com)<br>
+        Paid stock photo database which I used for website logo, turtle icons and race background. All images are licenced under the free trial of 10 image downloads.
+    - [TinyJPG](https://tinyjpg.com)<br>
+        Used to downsample images to smaller file sizes in order to increase load times and reduce storage requirements.
+    - [cloudconvert](https://cloudconvert.com)<br>
+        Used to convert race background image for mobile to the smallest file size possible to reduce data usage on mobile devices.
+    - [Favicon.io](https://favicon.io/)<br>
+        Used in the creation of the website Favicon across all pages.
+    - [Chrome DevTools](https://developer.chrome.com/docs/devtools/)<br>
+        Used  throughout the design process for debugging purposes in console.
+    - [Safari Web Inspector](https://developer.apple.com/safari/tools/)<br>
+        Used as above for cross-browser support.
+    - [Firefox Developer Tools](https://developer.mozilla.org/en-US/docs/Tools)<br>
+        Used as above for cross-browser support.
+    - [Am I Responsive?](http://ami.responsivedesign.is/)<br>
+        Used to create a website mock-up image across different sized devices to showcase viewport responsiveness.
+    - [WAVE](https://wave.webaim.org/)<br>
+        Used for diagnostic contrast testing.
+    - [Lighthouse](https://developers.google.com/web/tools/lighthouse)<br>
+        Used for diagnostic performance, accessibility and SEO testing.
+    - [W3C Markup Validation Service](https://validator.w3.org/)<br>
+        HTML Validator used to validate every page of the project to ensure there were no syntax errors.
+    - [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/)<br>
+        CSS Validator used to ensure there were no syntax errors in styling.
+    - [JSHint](https://jshint.com/)<br>
+        JavaScript tool to check for errors and potential problems in my JavaScript code
+
+## Testing
+- The W3C Markup Validator and W3C CSS Validator Services were used to validate the project to ensure there were no syntax errors. Both returned **no errors** for every page.
+![W3C Markup Validation](docs/readmeimages/w3c-markup.png)
+![W3C CSS Validation](docs/readmeimages/w3c-css.png)
+
+- WAVE, a Web Accessibility Evaluation Tool was used for contrast testing and returned **no contrast errors** for every page.
+![WAVE Web Accessibility Evaluation Tool](docs/readmeimages/WAVE-results.png)
+
+- Lighthouse was used for performance, accessibility and SEO testing and returned a score of **95-100** after generating 10+ reports for Desktop and Mobile.
+![Lighthouse Report](docs/readmeimages/lighthouse-results.png)
+
+- I ran the website locally and tested on the deployed version. No differences found.
+
+- ## Test Strategy
+The testing will be predominantly performed on the functionality of the game, in addition to the aesthetics and layout of the page.
+
+- This will be done on four web browsers:-
+  - Chrome
+  - Firefox
+  - Safari
+  - Brave
+
+ - And on every common breakpoint (Mobile, Tablet, Desktop, XL Desktop).
+
+ Validation of feature inclusion will be undertaken from the wireframes scoped during the Skeleton stage of UX design.
+ 
+ Elements should not overlap other container divs and should remain on the screen at all sizes above and including 300px.
+
+ Validation of bet inputs and token distribution will be undertaken thoroughly to ensure the calculations are working perfectly.
+
+ My GitHub repositry link should open in a new browser window.
+
+The live project is deployed [here](https://ollylomax.github.io/Racing-Turtles---Interactive-Frontend-Development-Milestone-Project/index.html).
 
 
-Functional Limitations
-Having not begun JavaScript on the course yet, all form actions on the site are directed to a Code Institute form dump I used during the learning process. Therefore no data is stored from POST method on form submission.
-
-Features
-Current
-
-Responsive across all viewports using bootstrap classes.
-Page heading and logo
-Clear instructions on how to play the game.
-Turtle portrait and names
-Correctly weighted odds for each turtle
-User inputs with restrictions
-Start race and Next race buttons.
-Turtle icons in start positions in respective lanes.
-Turtle icons in finishing positions in respective lanes. (Upon clicking Start Race button)
-User tokens and progress towards the winning scenario of 1000 tokens.
-Progress bar towards aforementioned winning scenario.
-User token shake effect (Upon the gaining or losing of Tokens)
-Alert popup teller user to place a bet (If no bets are input)
-Textual results informing user about race winner and tokens lost/gained
-Modal dialogs telling user they have won/lost (Upon winning/losing scenarios)
-Footer - GitHub profile and links to my repos
-
-Prospective
-
-Animate the turtles down their lanes, setting varying interval steps for each turtle.
-The project is future scoped for the easy addition of more lanes and more turtles.
-Change Win/Loss scenario from reaching a set number of tokens, to playing against the ‘computer’ with randomised choices.
-Allow users to upload their own pet names and images to race with
-
-
-Testing
+- ## Testing
 
 - As a user, I want to easily understand the purpose of the site.
 

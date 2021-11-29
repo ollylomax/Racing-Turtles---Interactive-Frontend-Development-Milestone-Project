@@ -11,14 +11,14 @@ I made this website using my knowledge of HTML5, CSS3, JavaScript, jQuery and Bo
 
 View the live project [here](https://ollylomax.github.io/Racing-Turtles---Interactive-Frontend-Development-Milestone-Project/index.html).
 
+### Goals
+  - To show what I have learned so far with HTML5, CSS, Bootstrap, jQuery and Javascript.
+  - To provide a fun and interactive game to play that users will enjoy.
+  - To show clear win and lose scenarios.
+  - To make a game that users will want to play multiple times.
+  - To make a game that users will want to return to the website in order to play again.
 
-To show what I have learned so far with HTML5, CSS, Bootstrap, jQuery and Javascript.
-To provide a fun and interactive game to play that users will enjoy.
-To show clear win and lose scenarios.
-To make a game that users will want to play multiple times.
-To make a game that users will want to return to the website in order to play again.
-
-## STRATEGY
+## UX STRATEGY
 
 - ### User Stories
 
@@ -61,7 +61,7 @@ To make a game that users will want to return to the website in order to play ag
 
 
 
-## SCOPE
+## UX SCOPE
 
 - ### Planned Features
 
@@ -84,7 +84,7 @@ To make a game that users will want to return to the website in order to play ag
     - GitHub profile and repos shown in footer.
 
 
-## STRUCTURE
+## UX STRUCTURE
 
 ### User Story:
 > As a user, I want to easily understand the purpose of the site.
@@ -244,7 +244,7 @@ after a race has finished.
     Restart button provided on modal popups which restarts the game completely. Closing the modals using the ‘x’ at the top right has the same effect.
 
 
-## SKELETON
+## UX SKELETON
 
 - ### Wireframes
 
@@ -254,7 +254,7 @@ after a race has finished.
     - Home (mobile)
     ![Home](docs/wireframes/racing-game-mobile.png)
 
-## SURFACE
+## UX SURFACE
 
 - ### Colour Scheme
 
@@ -412,67 +412,103 @@ The live project is deployed [here](https://ollylomax.github.io/Racing-Turtles--
 
 > As a user, I want to easily understand the purpose of the site.
 
-Open website, purpose of game displayed in subheading. Instructions displayed in results box next to start game button.
+ - The purpose of the website is promoted in the title and sub-heading indicating that it is a game.
+
+ - The game instructions will be displayed in results box underneath the game window and next to start game button.
 
 > As a user, I want to clearly view the website and content on any device.
 
-Open website on all viewport sizes and test whether content overlaps all the way down to 300px.
+  - The website will be accessible and fully functional on Mobile, Tablet, and Desktop.
 
 > As a user, I want to clearly view the website and content on any browser.
 
-Open website on Google Chrome, Mozilla Firefox and Safari and check for consistency between browsers.
+ - The website will be accessible and fully functional on Chrome, Edge, Firefox, and Safari.
 
 > As a user, I want to be able to understand how the game works with clear instructions.
 
-Open website, purpose of game displayed in subheading. Instructions displayed in results box next to start game button.
+ - The game instructions will be displayed in results box underneath the game window and next to start game button.
 
 > As a user, I want to see the odds clearly displayed for each turtle.
 
-Open website, odds displayed in correct format underneath each turtle portrait.
+ - Odds displayed in correct format underneath each turtle portrait.
 
 > As a user, I want to choose the turtle I want to bet on based on odds, name and portrait.
 
-Open website, turtle pictures and turtle names shown above corresponding race lane.
+ - Turtle pictures and turtle names will be shown above corresponding race lane.
 
 > As a user, I want to be able to easily bet on my chosen turtle.
 
-Open website, click on random input box and input a number of tokens within total tokens value
+ - Input boxes are provided underneath each turtle for bet placement.
 
-Open website, click on random input box and input a number of tokens over total tokens value
+ - Input boxes prevent inputs of the decimal point (period).
 
-Open website, click on random input box and input 0
+ - Input boses begin incrementing from 1.
 
-Open website, click on random input box and try to input a negative value with ‘-‘.
+ - Value in input boxes will automatically change to the user's maximum token value if they input a value that exceeds it.
+
+ - Value of input boxes will automatically be removed if a value below 1 is entered.
 
 > As a user, I want to be warned if I forgot to input a bid before starting the race.
 
-Open website, click on ‘Start Race’ button
-
-Open website, click on random input box and press ‘Enter’ on keyboard.
+ - Alert dialog will pop up explaining that a bid must be input in order for a race to begin.
 
 > As a user, I want to be able to see how many tokens I have remaining.
 
-Open website, tokens clearly displayed beneath the game window.
+ - Tokens are clearly displayed beneath the game window.
 
-> As a user, I want to be able to quickly and easily start the race.
+> As a user, I want to be able to quickly and easily start a race.
 
-Open website, click on random input box and input number not exceeding total tokens value. Click on ‘Start Race’ button.
+ - Once a bet has been placed in an input box of a turtle, pressing on the Start Race button will initiate the race.
+
+ - Once a bet has been placed in an input box of a turtle, pressing Enter on the keyboard will initiate the race.
 
 > As a user, I want to be able to clearly see where the turtles have finished in each race.
 
+ - Once the race has been initiated the turtles, reflected by their turtle icons, will move to their finishing positions in their respective lanes.
+
 > As a user, I want to see my tokens update after each race.
+
+ - After race has been initiated and the turtle chosen for bet has won, user tokens will update returning the value of the bet aswell as the winnings based on the odds multiplier.
+
+ - After race has been initiated and the turtle chosen for bet has lost, user tokens will deplete by the bet value amount.
 
 > As a user, I want to be able to see if I win my bet, and how many tokens I won.
 
+ - After race has been initiated and the turtle chosen for bet has won, a results box beneath the game window will show information on race outcome and tokens won.
+
 > As a user, I want to be able to see if I lose my bet, and how many tokens I lost.
+
+ - After race has been initiated and the turtle chosen for bet has lost, a results box beneath the game window will show information on race outcome and tokens lost.
 
 > As a user, I want to be able to visually see how many tokens I need to win the game.
 
+ - Token progress towards the winning scenario of acquiring 1000 tokens will be textually displayed beneath the game window on the right.
+
+ - Token progress towards the winning scenario of acquiring 1000 tokens will be visually displayed by a progress bar beneath the game window on the right.
+
 > As a user, I want to be able to quickly and easily move on to the next race.
+
+ - Once a race has taken place, a 'Next Race' button will be displayed beneath the game window in place of the 'Start Race' button.
 
 > As a user, I want to be alerted when I win or lose the game.
 
+ - When the winning scenario of reaching 1000 tokens has been met, a modal dialog popup will be shown informing user of winning the game and a 'Restart Game' button to reset the game environment.
+
 > As a user, I want to be able to quickly start a new game.
+
+ - When a losing scenario of reaching 0 tokens has been met, a modal dialog popup will be shown informing user of running out of tokens and a 'Restart Game' button to reset the game environment.
+
+## Test Results
+
+Test results can be found below.
+
+    Link directly to the Google Sheet [here]().
+
+    Downloadable .pdf format [here]().
+
+    Downloadable .xlsx format [here]().
+
+![Testing]()
 
 ## Deployment
 

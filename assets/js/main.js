@@ -370,7 +370,7 @@ function showResults() {
                 wrapper.classList.remove('shake', 'red');
             }, 1000);
             $('#results').append(`
-            <p>${turtle.name} the turtle didn't win. Better luck next time :(</p>
+            <p>${turtle.name} the turtle didn't win. Better luck next time!</p>
             <p>Your tokens went down by ${betVal}</p>
             `);
         }
@@ -401,7 +401,7 @@ function checkWinLose() {
     } else if ($('#tokens')[0].innerHTML < 1) {
         // Show losing modal dialog
         $('#myModal').modal('show');
-        $('#game-modal-title')[0].innerHTML = "You ran out of Tokens :(";
+        $('#game-modal-title')[0].innerHTML = "You ran out of Tokens";
         $('#game-modal-body')[0].innerHTML = "Restart the game and try again!";
     }
 }

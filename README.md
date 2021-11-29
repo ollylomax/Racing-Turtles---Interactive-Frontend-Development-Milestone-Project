@@ -502,13 +502,17 @@ The live project is deployed [here](https://ollylomax.github.io/Racing-Turtles--
 
 Test results can be found below.
 
-    Link directly to the Google Sheet [here]().
+ - Link directly to the Google Sheet [here](https://docs.google.com/spreadsheets/d/1aIn2dqtc6cXVij5FZhDcnQ3f86FkiUTQiTZKeaS8SFc/edit?usp=sharing).
 
-    Downloadable .pdf format [here]().
+ - Downloadable .pdf format [here](docs/readmeimages/racing-turtles_test-case-scenarios.pdf).
 
-    Downloadable .xlsx format [here]().
+ - Downloadable .xlsx format [here](docs/readmeimages/racing-turtles_test-case-scenarios.xlsx).
 
-![Testing]()
+![Testing](docs/readmeimages/racing-turtles_test-case-scenarios.png)
+
+## Test Fails and Resolutions
+
+Passed all test scenarios.
 
 ## Deployment
 

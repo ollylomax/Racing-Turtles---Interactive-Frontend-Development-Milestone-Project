@@ -96,7 +96,7 @@ View the live project [here](https://ollylomax.github.io/Racing-Turtles---Intera
 > As a user, I want to clearly view the website and content on any device.
 
 - #### Acceptance Criteria:
-    - The layout of the website is well structured, clearly readable and aesthetically pleasing across all viewports and devices.
+    The layout of the website is well structured, clearly readable and aesthetically pleasing across all viewports and devices.
 
 - #### Description:
     Utilising rows and columns within Bootstrap frameworks and mobile first design will be used when coding the project and testing will be required to ensure the layout is clear on all devices. No elements should overlap their containers and all items should be responsive so that no elements are too large to display properly.
@@ -273,7 +273,7 @@ View the live project [here](https://ollylomax.github.io/Racing-Turtles---Intera
     - In contrast to my wireframes, I decided not to include the ‘Email Results’ email input on the desktop site. I had intended to hook this up to an API where the user, upon winning the game, could request a basic email showing how many tokens they won and how many races it took to do so. The reasons for this were twofold:
 
         - I had already coded a walkthrough project where I hooked up a simple email API and felt that this wasn’t going to showcase any further skills.
-        - I felt that this feature did not have any other purpose other than to show I can hook up a basic email API, and that it did not tie in with the theme of the site.
+        - I felt that this feature did not have any other purpose other than to show I can hook up a basic email API, moreover it did not tie in with the theme of the site.
     
      - In contrast to my wireframes, I decided that instead of having two buttons ('Start Race' and 'Next Race') being displayed at all times, that I would have them replace each other between races. I did this because:
         - It provides a better user experience, as the 'Start Race' button would not have any functionality between race outcomes.
@@ -318,7 +318,7 @@ View the live project [here](https://ollylomax.github.io/Racing-Turtles---Intera
         I used heavy custom JavaScript for game functionality with jQuery.
 
 -   ### Frameworks, Libraries & Programs
-    - [Bootstrap v4.6](https://getbootstrap.com/docs/4.6/getting-started/introduction/)<br>
+    - [Bootstrap v5.1.3](https://getbootstrap.com/docs/4.6/getting-started/introduction/)<br>
         Framework used throughout the site to provide baseline styling and import JavaScript/jQuery.
     - [Google Fonts](https://fonts.google.com/)<br>
         Used to import the two fonts used throughout the website: Odibee and Roboto.

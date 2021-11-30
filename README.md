@@ -5,17 +5,15 @@
 
 ![Responsive Visuals](docs/readmeimages/responsive.png)
 # Racing Turtles Website
-I made this website using my knowledge of HTML5, CSS3, JavaScript, jQuery and Bootstrap frameworks as well as UX Design which I have learned from Code Institute during my Diploma in Full Stack Software Development. I made this interactive game with the intention of completing my Interactive Frontend Development Milestone Project. From scope to testing has taken me just under 10 days.
-
-
+I made this website using my knowledge of HTML5, CSS3, JavaScript, jQuery and Bootstrap frameworks as well as UX Design which I have learned from Code Institute during my Diploma in Full Stack Software Development. I made this interactive game with the intention of completing my Interactive Frontend Development Milestone Project.
 
 View the live project [here](https://ollylomax.github.io/Racing-Turtles---Interactive-Frontend-Development-Milestone-Project/index.html).
 
 ### Goals
-  - To show what I have learned so far with HTML5, CSS, Bootstrap, jQuery and Javascript.
+  - To show what I have learned so far with HTML5, CSS3, JavaScript and Bootstrap and jQuery frameworks.
   - To provide a fun and interactive game to play that users will enjoy.
   - To show clear win and lose scenarios.
-  - To make a game that users will want to play multiple times.
+  - To make a game with replayability that users will want to play multiple times.
   - To make a game that users will want to return to the website in order to play again.
 
 ## UX STRATEGY
@@ -58,9 +56,6 @@ View the live project [here](https://ollylomax.github.io/Racing-Turtles---Intera
 
     - As a user, I want to be able to quickly start a new game.
 
-
-
-
 ## UX SCOPE
 
 - ### Planned Features
@@ -68,19 +63,19 @@ View the live project [here](https://ollylomax.github.io/Racing-Turtles---Intera
     - Page heading and logo to be visually appealing and provide a short description of what the game is about.
     - An interactive turtle racing game using imaginary tokens to bet with.
     - Clear instructions on how to play the game.
-    - Randomised turtle portraits and names
-    - Randomised betting odds with correctly weighted race outcomes
+    - Randomised turtle portraits and names.
+    - Randomised betting odds with correctly weighted race outcomes.
     - Input field for each turtle to place bets within, with restrictions on input
     - Start race button.
-    - Finishing positions displayed clearly with turtle icons in the respective lanes.
+    - Finishing positions displayed clearly with turtle icons in their respective lanes.
     - User tokens value displayed clearly.
     - Visual progress bar showing progress towards winning scenario.
-    - Shake effect on user tokens value when value changes with bets
+    - Shake effect on user tokens value when value changes with bets.
     - Next race button.
     - Alert popup to tell user if they have forgotten to input a bet.
-    - Clearly display which turtle has won the race and If the turtle the user bet on won or lost
-    - Clearly display token gains and losses through betting outcomes
-    - Modal dialogs announcing Win/Loss scenarios to the user.
+    - Clearly display which turtle has won the race and if the turtle the user bet on won or lost.
+    - Clearly display token gains and losses through betting outcomes.
+    - Modal dialogs announcing Win/Loss game scenarios to the user.
     - GitHub profile and repos shown in footer.
 
 
@@ -128,7 +123,7 @@ View the live project [here](https://ollylomax.github.io/Racing-Turtles---Intera
 > As a user, I want to choose the turtle I want to bet on based on odds, name and portrait.
 
 - #### Acceptance Criteria:
-    User will be shown a picture of the turtle, his/her name and betting odds ii order for them to be comfortable with their choice.
+    User will be shown a picture of the turtle, his/her name and betting odds in order for them to be comfortable with their choice.
 
  - #### Description:
     Turtle portraits and names will be randomly assigned to each name and be clearly displayed alongside their respective odds to win the race.
@@ -137,7 +132,7 @@ View the live project [here](https://ollylomax.github.io/Racing-Turtles---Intera
 > As a user, I want to be able to easily bet on my chosen turtle.
 
 - #### Acceptance Criteria:
-    User able to discern the the betting box relevant to the turtle they wish to bet on and input the tokens they wish
+    User able to distinguish between betting boxes relevant to the turtle they wish to bet on and input the tokens they desire.
 
  - #### Description:
     Input fields will be provided and clearly displayed beneath the portrait, name and odds of the relevant turtle.
@@ -149,7 +144,7 @@ View the live project [here](https://ollylomax.github.io/Racing-Turtles---Intera
     User will be alerted if they try to start a race without making a bet on a turtle
 
  - #### Description:
-    An alert dialog will pop on screen if the start race button is clicked without a betting input
+    An alert dialog will pop on screen if the start race button is clicked or if the keyboard Enter key is pressed while in a bet field without a bet entered.
 
 ### User Story:
 > As a user, I want to be able to see how many tokens I have remaining.
@@ -164,33 +159,32 @@ View the live project [here](https://ollylomax.github.io/Racing-Turtles---Intera
 > As a user, I want to be able to quickly and easily start the race.
 
 - #### Acceptance Criteria:
-    User can initiate the race to begin
+    User can initiate the race to begin.
 
  - #### Description:
 
-    ’Start Race’ button will be provided underneath the game window.
+    ’Start Race’ button will be provided underneath the game window and the keyboard Enter key will also initiate the race if a bet has been entered into bet field.
 
 ### User Story:
 > As a user, I want to be able to clearly see where the turtles have finished in each race.
 
 - #### Acceptance Criteria:
-    User can see on the race track where each turtle finished in the race
+    User can see on the race track where each turtle finished in the race.
 
  - #### Description:
-    In each lane the turtle icons are displayed in the position in which they finished the race, from 1st to 4th.
+    In each lane the turtle icons are displayed in their designated position in which they finished the race, from 1st to 4th.
 
 ### User Story:
 > As a user, I want to see my tokens update after each race.
 
 - #### Acceptance Criteria:
-    User’s attention will be directed towards their tokens value when a race is complete
+    User’s attention will be directed towards their tokens value when a race is complete.
 
  - #### Description:
-    User tokens value will shake with a css effect and briefly change colour corresponding to gaining (green) or losing (red) tokens
-after a race has finished.
+    User tokens value will shake with a css effect and briefly change colour corresponding to gaining (green) or losing (red) tokens after a race has finished.
 
 ### User Story:
-> As a user, I want to be able to see if I win my bet, and how many tokens I won.
+> As a user, I want to be able to see if I win my bet, and how many tokens I won.<br>
 > As a user, I want to be able to see if I lose my bet, and how many tokens I lost.
 
 - #### Acceptance Criteria:
@@ -199,16 +193,16 @@ after a race has finished.
  - #### Description:
     A results box is provided for the user which displays:
 
-    - The winning turtle
-    - Whether the turtle the user bet on won
-    - If their turtle won, the amount of tokens gained is shown
-    - If their turtle didn’t win, the amount of tokens lost is shown
+    - The winning turtle.
+    - Whether the chosen turtle to bet on has won or not.
+    - If their turtle won, the amount of tokens gained is shown.
+    - If their turtle didn’t win, the amount of tokens lost is shown.
 
 ### User Story:
 > As a user, I want to be able to visually see how many tokens I need to win the game.
 
 - #### Acceptance Criteria:
-    User will be shown current progression towards winning the game both informatively and visually
+    User will be shown current progression towards winning the game both informatively and visually.
 
  - #### Description:
     Textual values are shown beneath the game window of current tokens compared to the 1000 tokens required to win the game.
@@ -219,17 +213,16 @@ after a race has finished.
 > As a user, I want to be able to quickly and easily move on to the next race.
 
 - #### Acceptance Criteria:
-    User can move onto the next race to decide on their next bet
+    User can move onto the next race and decide on their next bet.
 
  - #### Description:
-
     A ’Next Race’ button replaces the ‘Start Race’ button after it is clicked underneath the game window.
 
 ### User Story:
 > As a user, I want to be alerted when I win or lose the game.
 
 - #### Acceptance Criteria:
-    User will be alerted when their win or lose the game.
+    User will be alerted upon winnings and losing scenarios.
 
  - #### Description:
     Modal popups are initiated when winning or losing scenarios have been met, informing the user of the outcome.
@@ -241,7 +234,7 @@ after a race has finished.
     After a game as been won or lost, user will easily be able to restart the game to play again.
 
  - #### Description:
-    Restart button provided on modal popups which restarts the game completely. Closing the modals using the ‘x’ at the top right has the same effect.
+    Restart button provided on modal dialogs which restarts the game completely. Closing the modals using the ‘x’ at the top right has the same effect.
 
 
 ## UX SKELETON
@@ -262,10 +255,10 @@ after a race has finished.
     ![black](docs/readmeimages/black.png)
     ![Off-White #FFF](docs/readmeimages/fff.png)
 
-    I used three main colours for the website. A cyan for the main theme, as well as black and white for contrast. I felt like they complimented each other well, related well to the turtle theme and provided the necessary contrast to use exclusively throughout the design process.
+    I used three main colours for the website. A Cyan for the main theme, as well as Black and White for contrast. I felt like they complimented each other well, related well to the turtle theme and provided the necessary contrast to use exclusively throughout the design process.
 
 - ### Typography
-    I used two main fonts for the website, Odibee for the main heading for a gaming feel and Roboto for all content which is well recognised and a standard in web design.
+    I used two main fonts for the website, Odibee, a gaming themed font, for the main heading and Roboto for all content which is well recognised and a standard in web design.
 
 - ### Imagery
     I sourced the Racing Turtles main logo, the turtle race icons and the race background from licensed images on a Shutterstock free trial which are free for personal and commercial use. The turtle portrait images were taken from Unsplash which is a free resource for stock images. Using my knowledge of Adobe Photoshop and Illustrator, all images have been selected and edited/exported with as much uniformity as possible and downsampled to decrease page load times.
@@ -277,39 +270,42 @@ after a race has finished.
         - The heavy css and html changes required would not have been a productive use of time on an already tight schedule.
         - Upon reflection, I liked the flow of the race track in its current state on desktop and realised changing it would be unnecessary having already showcased my solid understanding of media queries in my previous project.
         
-    - In contrast to my wireframes, I decided not to include the ‘Email Results’ email input in the desktop site. I had intended to hook this up to an API where the user, upon winning the game, could request a basic email showing how many tokens they won and how many races it took. The reasons for this were twofold:
+    - In contrast to my wireframes, I decided not to include the ‘Email Results’ email input on the desktop site. I had intended to hook this up to an API where the user, upon winning the game, could request a basic email showing how many tokens they won and how many races it took to do so. The reasons for this were twofold:
 
         - I had already coded a walkthrough project where I hooked up a simple email API and felt that this wasn’t going to showcase any further skills.
         - I felt that this feature did not have any other purpose other than to show I can hook up a basic email API, and that it did not tie in with the theme of the site.
-
+    
+     - In contrast to my wireframes, I decided that instead of having two buttons ('Start Race' and 'Next Race') being displayed at all times, that I would have them replace each other between races. I did this because:
+        - It provides a better user experience, as the 'Start Race' button would not have any functionality between race outcomes.
+        - I did not want the user to be able to cycle through betting odds, by repeated use of the 'Next Race' button, until a desirable set of odds is found. This did not seem conducive to a random, but fair game.
 
 ## Features
 
 - ### Current
 
     - Responsive across all viewports using bootstrap classes.
-    - Page heading and logo
+    - Page heading and logo.
     - Clear instructions on how to play the game.
-    - Turtle portrait and names
-    - Correctly weighted odds for each turtle
-    - User inputs with restrictions
+    - Turtle portrait and names.
+    - Correctly weighted odds for each turtle.
+    - User inputs with restrictions.
     - Start race and Next race buttons.
     - Turtle icons in start positions in respective lanes.
-    - Turtle icons in finishing positions in respective lanes. (Upon clicking Start Race button)
+    - Turtle icons in finishing positions in respective lanes. (Upon clicking Start Race button).
     - User tokens and progress towards the winning scenario of 1000 tokens.
     - Progress bar towards aforementioned winning scenario.
-    - User token shake effect (Upon the gaining or losing of Tokens)
-    - Alert popup teller user to place a bet (If no bets are input)
-    - Textual results informing user about race winner and tokens lost/gained
-    - Modal dialogs telling user they have won/lost (Upon winning/losing scenarios)
-    - Footer - GitHub profile and links to my repos
+    - User token shake effect (Upon the gaining or losing of Tokens).
+    - Alert popup informing user to place a bet (If no bets are input).
+    - Textual results informing user about race winner and tokens lost/gained.
+    - Modal dialogs telling user they have won/lost (Upon winning/losing scenarios).
+    - Footer with GitHub profile and links to my repos.
 
 - ### Prospective
 
     - Animate the turtles down their lanes, setting varying interval steps for each turtle.
     - The project is future scoped for the easy addition of more lanes and more turtles.
     - Change Win/Loss scenario from reaching a set number of tokens, to playing against the ‘computer’ with randomised choices.
-    - Allow users to upload their own pet names and images to race with
+    - Allow users to upload their own pet names and images to race with.
 
 ## Technologies Used
 
@@ -386,7 +382,7 @@ after a race has finished.
 
 - JSHint, a JavaScript Static Code Analysis Tool was used to check the coherence and quality of my code, making sure it is error free and that no potential problems exist.
 
-  Though my code is error and problem free, there were two warnings remaining that I thoroughly troubleshooted but could not find a solution under a tight schedule. They don't however compromise any functionality of the game and both snippets of code have intentional purpose.
+  Though my code is error and problem free, there were two warnings remaining that I thoroughly troubleshooted but could not find a solution for under a tight schedule. They don't however compromise any functionality of the game and both snippets of code have intentional purpose.
  ![JSHint Report](docs/readmeimages/JSHint.png)
 
 - I ran the website locally and tested on the deployed version. No differences found.
@@ -398,7 +394,7 @@ after a race has finished.
     - Chrome
     - Firefox
     - Safari
-    - Brave
+    - Edge
 
     And on every common breakpoint (Mobile, Tablet, Desktop, XL Desktop).
 

@@ -379,10 +379,15 @@ after a race has finished.
 ![W3C CSS Validation](docs/readmeimages/w3c-css.png)
 
 - WAVE, a Web Accessibility Evaluation Tool was used for contrast testing and returned **no contrast errors** for every page.
-![WAVE Web Accessibility Evaluation Tool](docs/readmeimages/WAVE-results.png)
+ ![WAVE Web Accessibility Evaluation Tool](docs/readmeimages/WAVE-results.png)
 
-- Lighthouse was used for performance, accessibility and SEO testing and returned a score of **95-100** after generating 10+ reports for Desktop and Mobile.
-![Lighthouse Report](docs/readmeimages/lighthouse-results.png)
+- Lighthouse was used for performance, accessibility and SEO testing and returned a score of **95-100** after generating 10+ reports for Desktop and Mobile.<br>
+ ![Lighthouse Report](docs/readmeimages/lighthouse-results.png)
+
+- JSHint, a JavaScript Static Code Analysis Tool was used to check the coherence and quality of my code, making sure it is error free and that no potential problems exist.
+
+  Though my code is error and problem free, there were two warnings remaining that I thoroughly troubleshooted but could not find a solution under a tight schedule. They don't however compromise any functionality of the game and both snippets of code have intentional purpose.
+ ![JSHint Report](docs/readmeimages/JSHint.png)
 
 - I ran the website locally and tested on the deployed version. No differences found.
 
@@ -513,6 +518,13 @@ Test results can be found below.
 ## Test Fails and Resolutions
 
 Passed all test scenarios.
+
+As stated in the automated testing section, there were two warnings in JSHint:
+
+> Line 238: Functions declared within loops referencing an outer scoped variable may lead to confusing semantics. (weightsArr)<br>
+> Line 448: Functions declared within loops referencing an outer scoped variable may lead to confusing semantics. (triggerGame)
+
+I thoroughly troubleshooted these warnings but could not find a solution under a tight schedule. They don't however compromise any functionality of the game and both snippets of code have intentional purpose.
 
 ## Deployment
 
